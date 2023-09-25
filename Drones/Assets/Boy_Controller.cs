@@ -10,10 +10,16 @@ public class Boy_Controller : MonoBehaviour
 
     Rigidbody2D myRigidbody2D;
 
+    public GameObject camera;
+
+    public GameObject droneObject;
+
+    public Camera_Follow cameraScript;
+
     void Start()
     {
 
-
+        cameraScript = camera.GetComponent<Camera_Follow>();
 
     }
 
@@ -23,7 +29,15 @@ public class Boy_Controller : MonoBehaviour
 
         playerMove();
 
+    }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Trigger")
+        {
+            cameraScript.droneIsDeployed = true;
+            Instantiate(droneObject);
+        }
     }
 
     void FixedUpdate()
