@@ -1,12 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Boy_Controller : MonoBehaviour
 {
-    public float moveX;
+    public CharacterController controller;
 
-    public int moveSpeed;
+    public float horizontalMove;
+
+    public float walkSpeed = 8f;
+
+    public bool isFacingRight = true;
 
     Rigidbody2D myRigidbody2D;
 
@@ -15,6 +20,8 @@ public class Boy_Controller : MonoBehaviour
     public GameObject droneObject;
 
     public Camera_Follow cameraScript;
+
+    [SerializeField] private Rigidbody2D rb;
 
     void Start()
     {
@@ -26,9 +33,8 @@ public class Boy_Controller : MonoBehaviour
 
     void Update()
     {
-
-        playerMove();
-
+        horizontalMove = Input.GetAxisRaw("Horizontal");
+        Flip();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,28 +42,25 @@ public class Boy_Controller : MonoBehaviour
         if (collision.gameObject.tag == "Trigger")
         {
             cameraScript.droneIsDeployed = true;
-            Instantiate(droneObject);
+            Instantiate(droneObject, Vector3 position);
         }
     }
+
 
     void FixedUpdate()
     {
-       
+        rb.velocity = new Vector2(horizontalMove * walkSpeed, rb.velocity.y);
+
     }
 
-    void playerMove()
+    private void Flip()
     {
-        moveX = Input.GetAxis("Horizontal");
-
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * moveSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
-
-        if (moveX != 0)
+        if(isFacingRight && horizontalMove < 0f || !isFacingRight && horizontalMove > 0f)
         {
-
-        }
-        else
-        {
-
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= 1f;
+            transform.localScale = localScale;
         }
     }
 
