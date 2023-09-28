@@ -25,9 +25,7 @@ public class Boy_Controller : MonoBehaviour
 
     void Start()
     {
-
         cameraScript = camera.GetComponent<Camera_Follow>();
-
     }
 
 
@@ -37,20 +35,26 @@ public class Boy_Controller : MonoBehaviour
         Flip();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Trigger")
         {
             cameraScript.droneIsDeployed = true;
-            Instantiate(droneObject, Vector3 position);
+            Instantiate(droneObject, transform.position,Quaternion.identity);
         }
     }
 
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontalMove * walkSpeed, rb.velocity.y);
-
+        if(cameraScript.droneIsDeployed == false)
+          {
+            rb.velocity = new Vector2(horizontalMove * walkSpeed, rb.velocity.y);
+          }
+        else
+        {
+            //
+        }
     }
 
     private void Flip()
