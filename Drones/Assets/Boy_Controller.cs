@@ -41,6 +41,7 @@ public class Boy_Controller : MonoBehaviour
         {
             cameraScript.droneIsDeployed = true;
             Instantiate(droneObject, transform.position,Quaternion.identity);
+            Destroy(collision.gameObject);
         }
     }
 
