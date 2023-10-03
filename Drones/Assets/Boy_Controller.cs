@@ -33,15 +33,27 @@ public class Boy_Controller : MonoBehaviour
     {
         horizontalMove = Input.GetAxisRaw("Horizontal");
         Flip();
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            if (cameraScript.droneIsDeployed == false)
+            {
+                cameraScript.droneIsDeployed = true;
+                Instantiate(droneObject, transform.position, Quaternion.identity);
+            }
+            else
+            {
+
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Trigger")
         {
-            cameraScript.droneIsDeployed = true;
-            Instantiate(droneObject, transform.position,Quaternion.identity);
             Destroy(collision.gameObject);
+
         }
     }
 
