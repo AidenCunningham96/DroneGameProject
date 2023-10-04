@@ -8,15 +8,17 @@ TagManager:
   - Trigger
   - Ladder
   - Drone
+  - Grabber
+  - Grabbable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Boy
   - Water
   - UI
-  - 
-  - 
+  - Drone
+  - Ignore_Player
   - 
   - 
   - 

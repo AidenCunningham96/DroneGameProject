@@ -7,9 +7,13 @@ public class Drone_Controller : MonoBehaviour
 
     public float droneFlyForce;
     
-    public float moveX;
+    float moveX;
+    float moveY;
 
     public int moveSpeed;
+    public int downwardDrift;
+
+    public float rollSpeed = 100f;
 
     private float roll = 0f;
     private float pitch = 0f;
@@ -17,23 +21,39 @@ public class Drone_Controller : MonoBehaviour
     Rigidbody2D body;
     //Animator anim;
 
+    bool isActive;
+    public bool isStill;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        body.velocity = Vector3.zero;
+
         //anim = GetComponent<Animator>();
     }
 
-    void OnDisable()
-    {
-        body.bodyType = RigidbodyType2D.Kinematic;
-        body.velocity = Vector3.zero;
-    }
+    //void OnDisable()
+    //{
+    //    body.simulated = false;
+    //    isActive = false;
+    //    body.velocity = Vector3.zero;
+    //    roll = 0;
+    //    transform.rotation = Quaternion.identity;
+    //}
 
     void Update()
     {
+        //if (this.enabled && !isActive)
+        //{
+        //    isActive = true;
+        //    body.simulated = true;
+        //}
+    }
 
-        playerMove();
+    void FixedUpdate()
+    {
+        moveX = Input.GetAxis("Horizontal");
+        moveY = Input.GetAxis("Vertical");
 
         if (moveX > 0.0f)
         {
@@ -44,45 +64,26 @@ public class Drone_Controller : MonoBehaviour
             roll = 35;
         }
 
-        if (moveX == 0)
+        if (moveX == 0 && moveY == 0)
         {
             roll = 0;
-        }
-
-
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(pitch, 0f, roll), 120.0f * Time.deltaTime);
-
-    }
-
-    void FixedUpdate()
-    {
-        bool droneFlyActive = Input.GetButton("Fire1");
-
-        if (droneFlyActive)
-        {
-            body.AddForce(new Vector2(0, droneFlyForce));
-            //anim.SetBool("isFlying", true);
+            isStill = true;
         }
         else
         {
-           // anim.SetBool("isFlying", false);
-            roll = 0;
+            isStill = false;
         }
-    }
 
-    void playerMove()
-    {
-        moveX = Input.GetAxis("Horizontal");
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(pitch, 0f, roll), rollSpeed * Time.deltaTime);
+
+        if (isStill)
+        {
+            body.velocity = new Vector2(moveX, -downwardDrift) * (moveSpeed * 10) * Time.deltaTime;
+        }
+        else
+        {
+            body.velocity = new Vector2(moveX, moveY) * (moveSpeed * 100) * Time.deltaTime;
+        }
         
-        body.velocity = new Vector2(moveX * moveSpeed, body.velocity.y);
-
-        if (moveX != 0)
-        {
-            
-        }
-        else
-        {
-            
-        }
     }
 }
