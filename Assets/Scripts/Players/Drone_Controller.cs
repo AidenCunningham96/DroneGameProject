@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Drone_Controller : MonoBehaviour
 {
 
     public float droneFlyForce;
@@ -14,17 +14,21 @@ public class PlayerController : MonoBehaviour
     private float roll = 0f;
     private float pitch = 0f;
 
-    Rigidbody2D myRigidbody2D;
+    Rigidbody2D body;
+    //Animator anim;
 
 
-	
-	void Start ()
+    void Start()
     {
+        body = GetComponent<Rigidbody2D>();
+        //anim = GetComponent<Animator>();
+    }
 
-        
-
-	}
-
+    void OnDisable()
+    {
+        body.bodyType = RigidbodyType2D.Kinematic;
+        body.velocity = Vector3.zero;
+    }
 
     void Update()
     {
@@ -56,12 +60,12 @@ public class PlayerController : MonoBehaviour
 
         if (droneFlyActive)
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, droneFlyForce));
-            GetComponent<Animator>().SetBool("isFlying", true);
+            body.AddForce(new Vector2(0, droneFlyForce));
+            //anim.SetBool("isFlying", true);
         }
         else
         {
-            GetComponent<Animator>().SetBool("isFlying", false);
+           // anim.SetBool("isFlying", false);
             roll = 0;
         }
     }
@@ -70,7 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         moveX = Input.GetAxis("Horizontal");
         
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * moveSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        body.velocity = new Vector2(moveX * moveSpeed, body.velocity.y);
 
         if (moveX != 0)
         {

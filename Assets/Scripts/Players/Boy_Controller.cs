@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Boy_Controller : MonoBehaviour
 {
-    public CharacterController controller;
-
     public float horizontalMove;
 
     public float walkSpeed = 8f;
@@ -15,17 +13,13 @@ public class Boy_Controller : MonoBehaviour
 
     Rigidbody2D myRigidbody2D;
 
-    public GameObject camera;
-
     public GameObject droneObject;
-
-    public Camera_Follow cameraScript;
 
     [SerializeField] private Rigidbody2D rb;
 
     void Start()
     {
-        cameraScript = camera.GetComponent<Camera_Follow>();
+        
     }
 
 
@@ -33,19 +27,6 @@ public class Boy_Controller : MonoBehaviour
     {
         horizontalMove = Input.GetAxisRaw("Horizontal");
         Flip();
-
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            if (cameraScript.droneIsDeployed == false)
-            {
-                cameraScript.droneIsDeployed = true;
-                Instantiate(droneObject, transform.position, Quaternion.identity);
-            }
-            else
-            {
-
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,14 +41,7 @@ public class Boy_Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(cameraScript.droneIsDeployed == false)
-          {
-            rb.velocity = new Vector2(horizontalMove * walkSpeed, rb.velocity.y);
-          }
-        else
-        {
-            //
-        }
+        rb.velocity = new Vector2(horizontalMove * walkSpeed, rb.velocity.y);
     }
 
     private void Flip()

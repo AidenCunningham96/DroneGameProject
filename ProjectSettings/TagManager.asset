@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Boy
-  - Wall
   - Trigger
   - Ladder
+  - Drone
   layers:
   - Default
   - TransparentFX
