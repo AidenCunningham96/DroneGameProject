@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class Drone_Controller : MonoBehaviour
 {
-
-    public float droneFlyForce;
-    
     float moveX;
     float moveY;
 
     public int moveSpeed;
     public int downwardDrift;
 
-    public float rollSpeed = 100f;
+    public float rollSpeed = 1f;
 
     private float roll = 0f;
+    public float rollAmount = 35f;
     private float pitch = 0f;
 
     Rigidbody2D body;
@@ -55,18 +53,17 @@ public class Drone_Controller : MonoBehaviour
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
 
-        if (moveX > 0.0f)
+        if (moveX > .5f)
         {
-            roll = -35;
+            roll = -rollAmount;
         }
-        else if (moveX < 0.0f)
+        if (moveX < -.5f)
         {
-            roll = 35;
+            roll = rollAmount;
         }
 
         if (moveX == 0 && moveY == 0)
         {
-            roll = 0;
             isStill = true;
         }
         else
@@ -74,7 +71,12 @@ public class Drone_Controller : MonoBehaviour
             isStill = false;
         }
 
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(pitch, 0f, roll), rollSpeed * Time.deltaTime);
+        if ((moveX < 0f && moveX > -.5f) || (moveX < .5f && moveX > 0f))
+        {
+            roll = 0;
+        }
+
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(pitch, 0f, roll), rollSpeed * 100 * Time.deltaTime);
 
         if (isStill)
         {

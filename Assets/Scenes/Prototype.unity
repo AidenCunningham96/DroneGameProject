@@ -775,10 +775,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bbf5c4c41b04ee418148538466bdf3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  droneFlyForce: 1
   moveSpeed: 4
   downwardDrift: 1
-  rollSpeed: 100
+  rollSpeed: 1
+  rollAmount: 35
   isStill: 0
 --- !u!50 &302956781
 Rigidbody2D:
@@ -794,7 +794,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 5
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -2922,7 +2922,6 @@ GameObject:
   - component: {fileID: 1687845484}
   - component: {fileID: 1687845483}
   - component: {fileID: 1687845482}
-  - component: {fileID: 1687845487}
   - component: {fileID: 1687845485}
   - component: {fileID: 1687845486}
   m_Layer: 3
@@ -3054,23 +3053,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.15}
   m_Size: {x: 0.5, y: 2}
   m_Direction: 0
---- !u!114 &1687845487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687845481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef53b445b20c5de4c8fffbc33afdb127, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vertical: 0
-  speed: 0
-  isLadder: 0
-  isClimbing: 0
-  rb: {fileID: 1687845485}
 --- !u!1 &1724233766
 GameObject:
   m_ObjectHideFlags: 0
