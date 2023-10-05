@@ -6,12 +6,18 @@ using UnityEngine;
 public class Boy_Controller : MonoBehaviour
 {
     public float horizontal;
+    public float vertical;
 
     public float walkSpeed = 8f;
+    public float climbSpeed = 4f;
 
     public bool facingRight = true;
+    //[HideInInspector]
+    public bool Climbing;
+    bool Climbable;
     bool flip;
 
+    bool canMove = true;
     public GameObject droneObject;
 
     Rigidbody2D body;
@@ -25,6 +31,7 @@ public class Boy_Controller : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
 
         if (horizontal > 0 && !facingRight)
         {
@@ -34,11 +41,38 @@ public class Boy_Controller : MonoBehaviour
         {
             Flip();
         }
+
+        if (Input.GetKeyDown(KeyCode.E) && Climbable)
+        {
+            Climbing = !Climbing;
+        }
+
+        if (Climbing && canMove)
+        {
+            vertical = Input.GetAxisRaw("Vertical");
+            if (vertical == 0)
+            {
+                //anim.Play("MC_Climb_Idle");
+            }
+            else
+            {
+                //anim.Play("MC_Climb");
+            }
+
+            body.velocity = new Vector2(0, vertical * climbSpeed);
+            body.gravityScale = 0;
+            //isGrounded = false;
+        }
     }
 
     void FixedUpdate()
     {
         body.velocity = new Vector2(horizontal * walkSpeed, body.velocity.y);
+
+        if (!Climbing)
+        {
+            body.gravityScale = 1;
+        }
     }
 
     public void Flip()
@@ -57,6 +91,22 @@ public class Boy_Controller : MonoBehaviour
     void ResetFlip()
     {
         flip = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Climbable")
+        {
+            Climbable = true;
+        }
+    }
+
+    void OnTriggerEXit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Climbable")
+        {
+            Climbable = false;
+        }
     }
 
 }
