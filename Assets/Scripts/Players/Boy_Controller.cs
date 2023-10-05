@@ -101,11 +101,12 @@ public class Boy_Controller : MonoBehaviour
         }
     }
 
-    void OnTriggerEXit2D(Collider2D col)
+    void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.tag == "Climbable")
         {
             Climbable = false;
+            Climbing = false;
         }
     }
 
