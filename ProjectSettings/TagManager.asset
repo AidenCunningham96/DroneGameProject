@@ -6,10 +6,10 @@ TagManager:
   tags:
   - Boy
   - Trigger
-  - Ladder
   - Drone
   - Grabber
   - Grabbable
+  - Climbable
   layers:
   - Default
   - TransparentFX
