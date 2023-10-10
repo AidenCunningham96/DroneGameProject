@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 6d483f65952d7bd41b8703f0168bc8e6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1479173486882135345
+    second: Drone_Body
+  - first:
+      213: 522546729952920545
+    second: Drone_Sheet_1
+  - first:
+      213: -8962751883141202444
+    second: Prop_R
+  - first:
+      213: -4925258300377833016
+    second: Drone_Sheet_3
+  - first:
+      213: 3103820088504603218
+    second: Prop_L
+  - first:
+      213: -440460893028487051
+    second: Drone_LegL
+  - first:
+      213: 5699139612495654290
+    second: Drone_LegR
+  - first:
+      213: -2429357617285125775
+    second: Drone_Sheet_7
+  - first:
+      213: -3324938804566241691
+    second: Joint_L
+  - first:
+      213: 2150984418821006371
+    second: JointR
+  - first:
+      213: -7061857759674704774
+    second: Drone_Sheet_10
+  - first:
+      213: -9176775318727122260
+    second: Prop_BackL
+  - first:
+      213: 3766246886589429666
+    second: Prop_Back_R
+  - first:
+      213: -5235309095147282121
+    second: Drone_Sheet_13
+  - first:
+      213: -8668919140228630058
+    second: Drone_Sheet_14
+  - first:
+      213: 2673310856167257948
+    second: Drone_Sheet_15
+  - first:
+      213: 697215983137097052
+    second: EyeWipe0
+  - first:
+      213: 6842076011966122664
+    second: EyeWipe1
+  - first:
+      213: 2126255075771363596
+    second: EyeWipe2
+  - first:
+      213: -4694046930743324136
+    second: EyeWipe3
+  - first:
+      213: 7329073214204454162
+    second: EyeWipe4
+  - first:
+      213: 954848288688032435
+    second: EyeWipe5
+  - first:
+      213: -8863917733339989039
+    second: EyeWipe6
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Drone_Body
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 733
+        width: 659
+        height: 291
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d19c60374178410800000000000000
+      internalID: 1479173486882135345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_R
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 835
+        width: 322
+        height: 177
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fdb76326a8ed9380800000000000000
+      internalID: -8962751883141202444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_L
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 638
+        width: 323
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 252d90efcebf21b20800000000000000
+      internalID: 3103820088504603218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drone_LegL
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 569
+        width: 241
+        height: 140
+      alignment: 9
+      pivot: {x: 0.8861042, y: 0.22632098}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 570f595c62b23e9f0800000000000000
+      internalID: -440460893028487051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drone_LegR
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 569
+        width: 241
+        height: 140
+      alignment: 9
+      pivot: {x: 0.100268856, y: 0.21068202}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29d29204849671f40800000000000000
+      internalID: 5699139612495654290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint_L
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 573
+        width: 126
+        height: 54
+      alignment: 9
+      pivot: {x: 0.9344129, y: 0.15536726}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ecae506c17bd1d0800000000000000
+      internalID: -3324938804566241691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JointR
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 573
+        width: 126
+        height: 54
+      alignment: 9
+      pivot: {x: 0.06558857, y: 0.17563997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 324e939bee4d9dd10800000000000000
+      internalID: 2150984418821006371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drone_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 549
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7cd04c68cd3ffd90800000000000000
+      internalID: -7061857759674704774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_BackL
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 412
+        width: 250
+        height: 139
+      alignment: 9
+      pivot: {x: 0.51313674, y: 0.50000066}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2a2bfd77b85a080800000000000000
+      internalID: -9176775318727122260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prop_Back_R
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 412
+        width: 250
+        height: 139
+      alignment: 9
+      pivot: {x: 0.4824846, y: 0.50000066}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a77593c695644430800000000000000
+      internalID: 3766246886589429666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drone_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 538
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d9761cc8ffc1b780800000000000000
+      internalID: -8668919140228630058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeWipe0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 228
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c558c9e1e320da900800000000000000
+      internalID: 697215983137097052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeWipe1
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 228
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa467bc1efe3fe50800000000000000
+      internalID: 6842076011966122664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeWipe2
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 228
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c01393dd9b9f18d10800000000000000
+      internalID: 2126255075771363596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeWipe3
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 228
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8121806cf256bdeb0800000000000000
+      internalID: -4694046930743324136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeWipe4
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 228
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 215ac79d14916b560800000000000000
+      internalID: 7329073214204454162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeWipe5
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 228
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bac3a5a57d404d00800000000000000
+      internalID: 954848288688032435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeWipe6
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 228
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dbfbf9d8c90df480800000000000000
+      internalID: -8863917733339989039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: b8a2576e6fc46934bb635a597a57ef9c, type: 3}
+      name: _Emissive
+    - texture: {fileID: 2800000, guid: c3fb32d5cb7e8814aa08628ee26286a0, type: 3}
+      name: _MaskTex
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
