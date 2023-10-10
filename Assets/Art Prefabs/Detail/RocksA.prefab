@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5770168868174605092}
   - component: {fileID: 7722412260380076272}
+  - component: {fileID: 3205500113458111818}
   m_Layer: 0
   m_Name: RocksA
   m_TagString: Untagged
@@ -83,3 +84,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &3205500113458111818
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985986926987368090}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.48, y: 1.44}
+    newSize: {x: 2.48, y: 1.44}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.84, y: -0.35999998}
+      - {x: 1.04, y: -0.26999998}
+      - {x: 1.15, y: -0.19999999}
+      - {x: 1.1999999, y: -0.14999999}
+      - {x: 1.23, y: -0.089999996}
+      - {x: 1.23, y: 0.11}
+      - {x: 1.2099999, y: 0.24}
+      - {x: 1.11, y: 0.41}
+      - {x: 0.97999996, y: 0.52}
+      - {x: 0.83, y: 0.59999996}
+      - {x: 0.66999996, y: 0.64}
+      - {x: 0.37, y: 0.7}
+      - {x: 0.32, y: 0.71999997}
+      - {x: -0.65999997, y: 0.71999997}
+      - {x: -0.7, y: 0.69}
+      - {x: -0.78999996, y: 0.59}
+      - {x: -1.05, y: 0.22999999}
+      - {x: -1.16, y: 0.07}
+      - {x: -1.23, y: -0.06}
+      - {x: -1.23, y: -0.28}
+      - {x: -1.14, y: -0.39}
+      - {x: -1.03, y: -0.45999998}
+      - {x: -0.77, y: -0.57}
+      - {x: -0.45999998, y: -0.7}
+      - {x: -0.32999998, y: -0.71}
+      - {x: -0.26999998, y: -0.66999996}
+      - {x: -0.17, y: -0.71}
+      - {x: 0.17, y: -0.71}
+      - {x: 0.24, y: -0.69}
+      - {x: 0.39, y: -0.61}
+      - {x: 0.65999997, y: -0.42}
