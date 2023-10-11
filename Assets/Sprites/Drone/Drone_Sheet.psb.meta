@@ -1,0 +1,412 @@
+fileFormatVersion: 2
+guid: 7cc7b2115acaead4a856998a6852d60e
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: PropellorLeft
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 670
+      y: 4
+      width: 346
+      height: 189
+    spriteID: ca02efa684d55904f9bd3c0b822602b4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6, y: -831}
+  - name: PropellorRight
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 429
+      width: 345
+      height: 177
+    spriteID: 30664f2c637e0d34c87b39a438ae5f74
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -660, y: -209}
+  - name: Eye_Wipe1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 293
+      width: 954
+      height: 128
+    spriteID: 1a431097916466444b743d7066bc00fd
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -35, y: 65}
+  - name: Eye
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 658
+      height: 281
+    spriteID: 4f9977fc1263d7b4db3503810f2ab9ac
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: -729}
+  - name: Leg_Left
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 625
+      y: 429
+      width: 241
+      height: 140
+    spriteID: 24eed627f6b0c5844967341be8f552ae
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 565, y: -140}
+  - name: Leg_Right
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 272
+      y: 614
+      width: 241
+      height: 140
+    spriteID: 8179226272a66704a988ea77de4ad06c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -79, y: 45}
+  - name: Leg_Left_Joint
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 874
+      y: 429
+      width: 126
+      height: 55
+    spriteID: 4ee5b10d61210b741b47efcbc15cfc68
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 167, y: -144}
+  - name: Leg_Right_Joint
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 874
+      y: 492
+      width: 126
+      height: 55
+    spriteID: f5c5f8395368c9e4e8e5bf2c5f355abb
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 11, y: -81}
+  - name: PropellorBack_Left
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 357
+      y: 429
+      width: 260
+      height: 142
+    spriteID: 4fdce0dbc1158ab4a8a717f615780503
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 331, y: 17}
+  - name: PropellorBack_Right
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 614
+      width: 260
+      height: 190
+    spriteID: a621b5601bc903e4a9174c1d8ac26d98
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -354, y: 202}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 1024
+  importedTextureHeight: 1024
+  documentSize: {x: 1024, y: 1024}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 1024
+  textureActualHeight: 1024
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: PropellorLeft
+    spriteName: PropellorLeft
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ca02efa684d55904f9bd3c0b822602b4
+    layerID: 9
+    mosaicPosition: {x: 670, y: 4}
+  - name: PropellorRight
+    spriteName: PropellorRight
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 30664f2c637e0d34c87b39a438ae5f74
+    layerID: 3
+    mosaicPosition: {x: 4, y: 429}
+  - name: Eye_Wipe1
+    spriteName: Eye_Wipe1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1a431097916466444b743d7066bc00fd
+    layerID: 31
+    mosaicPosition: {x: 4, y: 293}
+  - name: Eye
+    spriteName: Eye
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4f9977fc1263d7b4db3503810f2ab9ac
+    layerID: 6
+    mosaicPosition: {x: 4, y: 4}
+  - name: Leg_Left
+    spriteName: Leg_Left
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 24eed627f6b0c5844967341be8f552ae
+    layerID: 13
+    mosaicPosition: {x: 625, y: 429}
+  - name: Leg_Right
+    spriteName: Leg_Right
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8179226272a66704a988ea77de4ad06c
+    layerID: 11
+    mosaicPosition: {x: 272, y: 614}
+  - name: Leg_Left_Joint
+    spriteName: Leg_Left_Joint
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4ee5b10d61210b741b47efcbc15cfc68
+    layerID: 12
+    mosaicPosition: {x: 874, y: 429}
+  - name: Leg_Right_Joint
+    spriteName: Leg_Right_Joint
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f5c5f8395368c9e4e8e5bf2c5f355abb
+    layerID: 4
+    mosaicPosition: {x: 874, y: 492}
+  - name: PropellorBack_Left
+    spriteName: PropellorBack_Left
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4fdce0dbc1158ab4a8a717f615780503
+    layerID: 18
+    mosaicPosition: {x: 357, y: 429}
+  - name: PropellorBack_Right
+    spriteName: PropellorBack_Right
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a621b5601bc903e4a9174c1d8ac26d98
+    layerID: 16
+    mosaicPosition: {x: 4, y: 614}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 0
+  textureAssetName: Drone_Sheet Texture
+  prefabAssetName: Drone_Sheet Prefab
+  spriteLibAssetName: Drone_Sheet Sprite Lib
+  secondarySpriteTextures: []

@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &330352151619429587
 Transform:
@@ -78,17 +78,17 @@ SpriteShapeRenderer:
   m_ShapeTexture: {fileID: 2800000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
   m_Sprites:
   - {fileID: 21300000, guid: 3f5a63ed591df314b86144b77ab20b6a, type: 3}
-  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
-  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
-  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
-  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
-  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
-  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
-  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
-  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 010b09dda99cb504ead173ae3fa2d5f8, type: 3}
+  - {fileID: 21300000, guid: 010b09dda99cb504ead173ae3fa2d5f8, type: 3}
+  - {fileID: 21300000, guid: 010b09dda99cb504ead173ae3fa2d5f8, type: 3}
+  - {fileID: 21300000, guid: 010b09dda99cb504ead173ae3fa2d5f8, type: 3}
+  - {fileID: 21300000, guid: 010b09dda99cb504ead173ae3fa2d5f8, type: 3}
+  - {fileID: 21300000, guid: 010b09dda99cb504ead173ae3fa2d5f8, type: 3}
+  - {fileID: 21300000, guid: 010b09dda99cb504ead173ae3fa2d5f8, type: 3}
+  - {fileID: 21300000, guid: 010b09dda99cb504ead173ae3fa2d5f8, type: 3}
   m_LocalAABB:
     m_Center: {x: -1.5, y: 0, z: 0}
-    m_Extent: {x: 0.55999994, y: 0.11, z: 0}
+    m_Extent: {x: 0.53999996, y: 0.07333334, z: 0}
 --- !u!114 &7947719608533098630
 MonoBehaviour:
   m_ObjectHideFlags: 0
