@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Boy_Controller : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Boy_Controller : MonoBehaviour
 
     public float walkSpeed = 8f;
     public float climbSpeed = 4f;
+
+    public int jumpPower;
+    public float fallMultiplier;
 
     public bool facingRight = true;
     //[HideInInspector]
@@ -23,16 +27,38 @@ public class Boy_Controller : MonoBehaviour
     public Transform Feet;
     public float rayRadius;
     public LayerMask groundLayerMask;
-    bool isGrounded;
 
-    Rigidbody2D body;
+    [HideInInspector]
+    public bool isGrounded;
 
-    Animator anim;
+    [HideInInspector]
+    public Rigidbody2D body;
+
+    private Player_Controls controls;
+
+    Vector2 vecGravity;
+
+    [HideInInspector]
+    public bool deadTrap, deadShot;
+
+    void Awake()
+    {
+        controls = new Player_Controls();
+    }
+
+    void OnEnable()
+    {
+        controls.Boy.Enable();
+    }
+    void OnDisable()
+    {
+        controls.Boy.Disable();
+    }
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        anim = GameObject.Find("Kid_Animator").GetComponent<Animator>();
+        vecGravity = new Vector2(0, -Physics2D.gravity.y);
     }
 
 
@@ -42,7 +68,12 @@ public class Boy_Controller : MonoBehaviour
         {
             horizontal = Input.GetAxisRaw("Horizontal");
         }
-        
+
+        if (controls.Boy.Jump.triggered && isGrounded)
+        {
+            body.velocity = new Vector2(body.velocity.x, jumpPower);
+        }
+
         vertical = Input.GetAxisRaw("Vertical");
 
         if (horizontal > 0 && !facingRight)
@@ -70,24 +101,11 @@ public class Boy_Controller : MonoBehaviour
             //isGrounded = false;
         }
 
-        if (isGrounded)
+        if (body.velocity.y < 0)
         {
-            anim.SetBool("Fall", false);
-            if (horizontal == 0 && vertical == 0)
-            {
-                anim.SetBool("Walk", false);
-            }
+            body.velocity -= vecGravity * fallMultiplier * Time.deltaTime;
 
-            if (horizontal != 0)
-            {
-                anim.SetBool("Walk", true);
-            }
         }
-        else
-        {
-            anim.SetBool("Fall", true);
-        }
-        
     }
 
     void FixedUpdate()
@@ -111,11 +129,11 @@ public class Boy_Controller : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(Feet.position, rayRadius);
-    }
+    //void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawSphere(Feet.position, rayRadius);
+    //}
 
     public void Flip()
     {
@@ -140,6 +158,16 @@ public class Boy_Controller : MonoBehaviour
         if (col.gameObject.tag == "Climbable")
         {
             Climbable = true;
+        }
+
+        if (col.gameObject.tag == "Death_Trap")
+        {
+            deadTrap = true;
+        }
+
+        if (col.gameObject.tag == "Death_Shot")
+        {
+            deadShot = true;
         }
     }
 

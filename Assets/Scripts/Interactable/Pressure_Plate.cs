@@ -27,7 +27,7 @@ public class Pressure_Plate : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Grabbable")
+        if (col.gameObject.tag == "Grabbable" || col.gameObject.tag == "Boy")
         {
             //interactPrompt.enabled = true;
             triggered = true;
@@ -38,7 +38,7 @@ public class Pressure_Plate : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Grabbable")
+        if (col.gameObject.tag == "Grabbable" || col.gameObject.tag == "Boy")
         {
             anim.SetTrigger("Trigger");
         }

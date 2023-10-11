@@ -10,6 +10,7 @@ TagManager:
   - Grabber
   - Grabbable
   - Climbable
+  - Death_Trap
   layers:
   - Default
   - TransparentFX
