@@ -20,17 +20,29 @@ public class Boy_Controller : MonoBehaviour
     bool canMove = true;
     public GameObject droneObject;
 
+    public Transform Feet;
+    public float rayRadius;
+    public LayerMask groundLayerMask;
+    bool isGrounded;
+
     Rigidbody2D body;
+
+    Animator anim;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        anim = GameObject.Find("Kid_Animator").GetComponent<Animator>();
     }
 
 
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        if (!Climbing)
+        {
+            horizontal = Input.GetAxisRaw("Horizontal");
+        }
+        
         vertical = Input.GetAxisRaw("Vertical");
 
         if (horizontal > 0 && !facingRight)
@@ -50,19 +62,32 @@ public class Boy_Controller : MonoBehaviour
         if (Climbing && canMove)
         {
             vertical = Input.GetAxisRaw("Vertical");
-            if (vertical == 0)
-            {
-                //anim.Play("MC_Climb_Idle");
-            }
-            else
-            {
-                //anim.Play("MC_Climb");
-            }
+
+            horizontal = 0;
 
             body.velocity = new Vector2(0, vertical * climbSpeed);
             body.gravityScale = 0;
             //isGrounded = false;
         }
+
+        if (isGrounded)
+        {
+            anim.SetBool("Fall", false);
+            if (horizontal == 0 && vertical == 0)
+            {
+                anim.SetBool("Walk", false);
+            }
+
+            if (horizontal != 0)
+            {
+                anim.SetBool("Walk", true);
+            }
+        }
+        else
+        {
+            anim.SetBool("Fall", true);
+        }
+        
     }
 
     void FixedUpdate()
@@ -73,6 +98,23 @@ public class Boy_Controller : MonoBehaviour
         {
             body.gravityScale = 1;
         }
+
+        RaycastHit2D hit = Physics2D.CircleCast(Feet.position, rayRadius, Vector2.down, 0, groundLayerMask);
+
+        if (hit.collider != null)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(Feet.position, rayRadius);
     }
 
     public void Flip()

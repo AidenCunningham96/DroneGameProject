@@ -429,6 +429,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteelBeam_Shape (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
       propertyPath: m_Spline.m_ControlPoints.Array.size
@@ -634,6 +639,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4202496755165636391, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
     type: 3}
   m_PrefabInstance: {fileID: 47470593}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &52630885 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2619127788814593068, guid: e11b33cbdb821ae46b3bf752f72afe2e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1701537585}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &55346249 stripped
 Transform:
@@ -3353,6 +3364,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Organic_Shape
       objectReference: {fileID: 0}
+    - target: {fileID: 1777881386242659843, guid: 428492dd49e923b46b21b57d166f4252,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 428492dd49e923b46b21b57d166f4252, type: 3}
 --- !u!1 &248839069
@@ -3839,6 +3855,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SteelBeam_Shape (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
@@ -5243,6 +5264,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SteelBeam_Shape (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
@@ -6982,6 +7008,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Organic_Shape (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1777881386242659843, guid: 428492dd49e923b46b21b57d166f4252,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 428492dd49e923b46b21b57d166f4252, type: 3}
 --- !u!1 &666893907 stripped
@@ -7158,6 +7189,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 666893906}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &685252111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 685252112}
+  m_Layer: 0
+  m_Name: Feet_Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &685252112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685252111}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.015, y: -0.847, z: -10.438544}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 52630885}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &689223795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7925,6 +7986,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SteelBeam_Shape (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
@@ -9255,6 +9321,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteelBeam_Shape (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
       propertyPath: m_Spline.m_ControlPoints.Array.size
@@ -9672,6 +9743,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SteelBeam_Shape (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
@@ -10160,6 +10236,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SteelBeam_Shape (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
@@ -11564,6 +11645,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteelBeam_Shape (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
       propertyPath: m_Spline.m_ControlPoints.Array.size
@@ -12289,6 +12375,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteelBeam_Shape (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
       propertyPath: m_Spline.m_ControlPoints.Array.size
@@ -12811,6 +12902,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SteelBeam_Shape (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
@@ -13488,6 +13584,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SteelBeam_Shape (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
@@ -15164,6 +15265,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteelBeam_Shape (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
       propertyPath: m_Spline.m_ControlPoints.Array.size
@@ -16358,6 +16464,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SteelBeam_Shape
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
@@ -18752,6 +18863,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThinSteelStrut_Shape (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 9072545145324573505, guid: bbdf5f0a4bee280449073685d2eff2be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbdf5f0a4bee280449073685d2eff2be, type: 3}
 --- !u!1001 &1553589943
@@ -19366,6 +19482,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteelBeam_Shape (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
       propertyPath: m_Spline.m_ControlPoints.Array.size
@@ -19772,6 +19893,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SteelBeam_Shape (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
@@ -20239,6 +20365,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteelBeam_Shape (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
       propertyPath: m_Spline.m_ControlPoints.Array.size
@@ -20441,17 +20572,32 @@ PrefabInstance:
     - target: {fileID: 1665611268026041110, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9990677
+      value: 0.99906784
       objectReference: {fileID: 0}
     - target: {fileID: 1665611268026041110, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.04317201
+      value: -0.043169245
       objectReference: {fileID: 0}
     - target: {fileID: 2619127788814593065, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_Name
       value: Boy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619127788814593066, guid: e11b33cbdb821ae46b3bf752f72afe2e,
+        type: 3}
+      propertyPath: Feet
+      value: 
+      objectReference: {fileID: 685252112}
+    - target: {fileID: 2619127788814593066, guid: e11b33cbdb821ae46b3bf752f72afe2e,
+        type: 3}
+      propertyPath: rayRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619127788814593066, guid: e11b33cbdb821ae46b3bf752f72afe2e,
+        type: 3}
+      propertyPath: groundLayerMask.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 2619127788814593068, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
@@ -20461,12 +20607,12 @@ PrefabInstance:
     - target: {fileID: 2619127788814593068, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.42
+      value: 28.9
       objectReference: {fileID: 0}
     - target: {fileID: 2619127788814593068, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.27
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2619127788814593068, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
@@ -20526,12 +20672,12 @@ PrefabInstance:
     - target: {fileID: 4816454383236442710, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000003165106
+      value: 0.0000000031651055
       objectReference: {fileID: 0}
     - target: {fileID: 4816454383236442710, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000066014985
+      value: 0.0000000066014967
       objectReference: {fileID: 0}
     - target: {fileID: 4816454383236442710, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
@@ -20561,12 +20707,12 @@ PrefabInstance:
     - target: {fileID: 7686789103673684106, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 8.5608637e-10
+      value: 8.560861e-10
       objectReference: {fileID: 0}
     - target: {fileID: 7686789103673684106, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000007270819
+      value: -0.000000007270817
       objectReference: {fileID: 0}
     - target: {fileID: 7686789103673684106, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
@@ -20576,27 +20722,27 @@ PrefabInstance:
     - target: {fileID: 7991991178477921872, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92350286
+      value: 0.9235034
       objectReference: {fileID: 0}
     - target: {fileID: 7991991178477921872, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.3835916
+      value: 0.3835903
       objectReference: {fileID: 0}
     - target: {fileID: 8025836389870735510, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.096060924
+      value: 0.096059546
       objectReference: {fileID: 0}
     - target: {fileID: 8025836389870735510, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.99537545
+      value: -0.9953756
       objectReference: {fileID: 0}
     - target: {fileID: 9047323065581931941, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.06263236
+      value: -0.06263239
       objectReference: {fileID: 0}
     - target: {fileID: 9047323065581931941, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
@@ -20828,6 +20974,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SteelBeam_Shape (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
@@ -21385,6 +21536,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThinSteelStrut_Shape (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9072545145324573505, guid: bbdf5f0a4bee280449073685d2eff2be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbdf5f0a4bee280449073685d2eff2be, type: 3}
 --- !u!1 &1776000554
@@ -21661,6 +21817,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SteelBeam_Shape (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
@@ -22071,6 +22232,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteelBeam_Shape (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
       propertyPath: m_Spline.m_ControlPoints.Array.size
@@ -22283,6 +22449,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 489580478}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1891400695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5852223800256598329, guid: 4bfede69ddae2684d95cf8253ba9d49d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3840183566380368697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1891400696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891400695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0d7e907f50146647877a113aaba83f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1893478837
 GameObject:
   m_ObjectHideFlags: 0
@@ -24017,6 +24201,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteelBeam_Shape (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
       propertyPath: m_Spline.m_ControlPoints.Array.size
@@ -25102,6 +25291,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteelBeam_Shape (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 7240754736429634634, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7342177478330346496, guid: 91b7b5979f1c7b14fa11dfa743f419a5,
         type: 3}
       propertyPath: m_Spline.m_ControlPoints.Array.size
@@ -25574,10 +25768,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3840183567744866394, guid: 4bfede69ddae2684d95cf8253ba9d49d,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840183567744866397, guid: 4bfede69ddae2684d95cf8253ba9d49d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 8.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840183567744866397, guid: 4bfede69ddae2684d95cf8253ba9d49d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840183567744866397, guid: 4bfede69ddae2684d95cf8253ba9d49d,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840183567744866397, guid: 4bfede69ddae2684d95cf8253ba9d49d,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 5852223800256598329, guid: 4bfede69ddae2684d95cf8253ba9d49d,
         type: 3}
       propertyPath: m_Name
       value: SteelBeam_Grabbable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852223800256598329, guid: 4bfede69ddae2684d95cf8253ba9d49d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bfede69ddae2684d95cf8253ba9d49d, type: 3}
@@ -25607,7 +25831,7 @@ PrefabInstance:
     - target: {fileID: 7325967835777088333, guid: ad40fddfd4b60a8438215e5cd414667a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.89
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 7325967835777088333, guid: ad40fddfd4b60a8438215e5cd414667a,
         type: 3}
@@ -25658,6 +25882,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325967836296286537, guid: ad40fddfd4b60a8438215e5cd414667a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325967836296286550, guid: ad40fddfd4b60a8438215e5cd414667a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad40fddfd4b60a8438215e5cd414667a, type: 3}
