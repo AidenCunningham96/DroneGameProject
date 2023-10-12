@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7325967835777088333}
   - component: {fileID: 7325967835777088332}
   - component: {fileID: 7325967835777088330}
+  - component: {fileID: 8778580932528167302}
   - component: {fileID: 7325967835777088331}
   - component: {fileID: 7325967835777088328}
   m_Layer: 6
@@ -104,6 +105,18 @@ MonoBehaviour:
   rollSpeed: 1
   rollAmount: 35
   isStill: 0
+--- !u!114 &8778580932528167302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7325967835777088335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f1a395c8b9a10f42b4188de5ffddbad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &7325967835777088331
 Rigidbody2D:
   serializedVersion: 4

@@ -49,6 +49,14 @@
                     "id": "37cf01d4-924c-4e68-ac1d-9c22492b02db",
                     "expectedControlType": "Button",
                     "processors": "",
+                    "interactions": "Press(pressPoint=0.2,behavior=2)"
+                },
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "7d7c661e-78fe-41f4-88b8-c1501f6de97d",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": ""
                 }
             ],
@@ -72,6 +80,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Fly",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8dcde5ce-ba95-4efb-94f5-6ce247b0f907",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eaeecc36-cebf-40b8-905f-20fb6c8b399d",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -8,7 +8,7 @@ public class Grabber : MonoBehaviour
     public GameObject grabbableObj;
     Rigidbody2D grabbableBody;
 
-    public bool Grabbed;
+    public bool Grabbed, tryingGrab;
 
     void OnDisable()
     {
@@ -28,27 +28,36 @@ public class Grabber : MonoBehaviour
         
     }
 
-    void Update()
+    public void TryGrab()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        tryingGrab = true;
+
+        if (grabbableObj != null)
         {
-            if (grabbableObj != null)
+            if (!Grabbed)
             {
-                if (!Grabbed)
-                {
-                    Invoke("Grab", .02f);
-                }
-                else
-                {
-                    Invoke("Release", .02f);
-                }            
+                Invoke("Grab", .02f);
+            }
+            else
+            {
+                Invoke("Release", .02f);
             }
         }
+        else
+        {
+            Invoke("GrabFailed", .6f);
+        }
+    }
+
+    void GrabFailed()
+    {
+        tryingGrab = false;
     }
 
     void Grab()
     {
         Grabbed = true;
+        tryingGrab = false;
         int LayerIgnoreRaycast = LayerMask.NameToLayer("Ignore_Player");
         grabbableObj.layer = LayerIgnoreRaycast;
         grabbableBody.bodyType = RigidbodyType2D.Kinematic;

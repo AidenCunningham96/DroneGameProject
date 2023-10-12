@@ -22,10 +22,33 @@ public class Drone_Controller : MonoBehaviour
     bool isActive;
     public bool isStill;
 
+    [HideInInspector]
+    public bool flying;
+
+    private Player_Controls controls;
+
+    public Grabber grabberScript;
+
+    void Awake()
+    {
+        controls = new Player_Controls();
+        controls.Drone.Fly.performed += ctx => Flying();
+    }
+
+    void OnEnable()
+    {
+        controls.Drone.Enable();
+    }
+    void OnDisable()
+    {
+        controls.Drone.Disable();
+    }
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         body.velocity = Vector3.zero;
+        grabberScript = GameObject.Find("Grab_Point").GetComponent<Grabber>();
 
         //anim = GetComponent<Animator>();
     }
@@ -46,12 +69,26 @@ public class Drone_Controller : MonoBehaviour
         //    isActive = true;
         //    body.simulated = true;
         //}
+
+        if (controls.Drone.Grab.triggered)
+        {
+            grabberScript.TryGrab();
+        }
     }
 
     void FixedUpdate()
     {
         moveX = Input.GetAxis("Horizontal");
-        moveY = Input.GetAxis("Vertical");
+
+        if (flying)
+        {
+            moveY = 1;
+        }
+        else
+        {
+            moveY = 0;
+        }
+        
 
         if (moveX > .5f)
         {
@@ -62,7 +99,7 @@ public class Drone_Controller : MonoBehaviour
             roll = rollAmount;
         }
 
-        if (moveX == 0 && moveY == 0)
+        if (moveX == 0 && !flying)
         {
             isStill = true;
         }
@@ -87,5 +124,10 @@ public class Drone_Controller : MonoBehaviour
             body.velocity = new Vector2(moveX, moveY) * (moveSpeed * 100) * Time.deltaTime;
         }
         
+    }
+
+    void Flying()
+    {
+        flying = !flying;
     }
 }
