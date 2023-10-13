@@ -53,13 +53,13 @@ public class Grabber : MonoBehaviour
         }
     }
 
-    //void Update()
-    //{
-    //    if (Grabbed)
-    //    {
-            
-    //    }
-    //}
+    void Update()
+    {
+        if (Grabbed)
+        {
+            grabbableObj.transform.rotation = Quaternion.identity;
+        }
+    }
 
     void GrabFailed()
     {

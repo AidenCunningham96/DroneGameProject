@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Boy_Animator : MonoBehaviour
 {
-    Animator anim;
+    [HideInInspector]
+    public Animator anim;
 
     Boy_Controller boyCon;
     Rigidbody2D body;
@@ -25,6 +26,7 @@ public class Boy_Animator : MonoBehaviour
             if (boyCon.isGrounded && boyCon.enabled && !boyCon.Climbing)
             {
                 anim.SetBool("Fall", false);
+                anim.SetBool("Jump", false);
                 if (boyCon.horizontal == 0 && boyCon.vertical == 0)
                 {
                     anim.SetBool("Walk", false);

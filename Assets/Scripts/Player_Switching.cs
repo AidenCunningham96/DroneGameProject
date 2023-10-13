@@ -11,21 +11,46 @@ public class Player_Switching : MonoBehaviour
     public List<GameObject> playableCharacters = new List<GameObject>();
 
     Boy_Controller boyCon;
+    Rigidbody2D boyBody;
+    Boy_Animator boyAnimScript;
+
     Drone_Controller droneCon;
+    Drone_Animator droneAnimScript;
     Grabber grabScript;
 
     bool assignCheck;
     [HideInInspector]
     public  bool Switching;
+
+    private Player_Controls controls;
+
+    void Awake()
+    {
+        controls = new Player_Controls();
+        controls.General.Switch.performed += ctx => SwitchPlayers();
+    }
+
+    void OnEnable()
+    {
+        controls.General.Enable();
+    }
+    void OnDisable()
+    {
+        controls.General.Disable();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         
         playableCharacters.Add(GameObject.FindWithTag("Boy"));
+        boyBody = GameObject.FindWithTag("Boy").GetComponent<Rigidbody2D>();
         boyCon = GameObject.FindWithTag("Boy").GetComponent<Boy_Controller>();
+        boyAnimScript = GameObject.FindWithTag("Boy").GetComponent<Boy_Animator>();
 
         playableCharacters.Add(GameObject.FindWithTag("Drone"));
         droneCon = GameObject.FindWithTag("Drone").GetComponent<Drone_Controller>();
+        droneAnimScript = GameObject.FindWithTag("Drone").GetComponent<Drone_Animator>();
         grabScript = GameObject.Find("Grab_Point").GetComponent<Grabber>();
 
         selectedPlayerTarget = GameObject.Find("Selected_Player_Target");
@@ -45,10 +70,6 @@ public class Player_Switching : MonoBehaviour
         }
         selectedPlayerTarget.transform.position = new Vector3(selectedPlayer.transform.position.x, selectedPlayer.transform.position.y, selectedPlayerTarget.transform.position.z);
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {          
-            Invoke("SwitchPlayers", .05f);
-        }
     }
 
     void SwitchPlayers()
@@ -60,6 +81,13 @@ public class Player_Switching : MonoBehaviour
         {
             selectedPlayerNumber++;
             boyCon.enabled = false;
+            boyBody.gravityScale = 20;
+            boyAnimScript.anim.SetBool("Walk", false);
+            boyAnimScript.anim.SetBool("Fall", false);
+            boyAnimScript.anim.SetBool("Drone", true);
+            boyAnimScript.anim.SetBool("Death_Trap", false);
+            boyAnimScript.anim.SetBool("Jump", false);
+            boyAnimScript.anim.SetBool("Pushing", false);
             droneCon.enabled = true;
             grabScript.enabled = true;
         }
@@ -68,7 +96,11 @@ public class Player_Switching : MonoBehaviour
         {
             selectedPlayerNumber = 0;
             boyCon.enabled = true;
+            boyBody.gravityScale = 1;
+            droneCon.flying = false;
             droneCon.enabled = false;
+            droneAnimScript.anim.SetBool("Flight", false);
+            droneAnimScript.anim.SetBool("Grab", false);
             grabScript.enabled = false;
         }
 

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Drone_Animator : MonoBehaviour
 {
-    Animator anim;
+    [HideInInspector]
+    public Animator anim;
 
     Drone_Controller droneCon;
     Grabber grabberScript;
@@ -22,8 +23,10 @@ public class Drone_Animator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (droneCon.enabled)
+        if (droneCon.enabled && !droneCon.isGrounded)
         {
+            anim.SetBool("Grounded", false);
+
             if (droneCon.flying)
             {
                 anim.SetBool("Flight", true);
@@ -43,9 +46,14 @@ public class Drone_Animator : MonoBehaviour
                 anim.SetBool("Grab", false);
             }
         }
-        else
+        if (!droneCon.enabled)
         {
-            anim.Play("Drone_OnGround");
+            anim.SetBool("Grounded", true);
+        }
+
+        if (droneCon.isGrounded)
+        {
+            anim.SetBool("Grounded", true);
         }
        
     }

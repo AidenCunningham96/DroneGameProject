@@ -58,30 +58,8 @@
                 },
                 {
                     "name": "",
-                    "id": "7a13c6de-cbcd-46f1-9b5d-fa1a24256a8b",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "e4a0aeea-5c8b-45a1-aae4-da9a7dc2aa88",
                     "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5e81d09b-1f02-4c82-91c5-aa19d255de7d",
-                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -154,6 +132,44 @@
                     "processors": "",
                     "groups": "",
                     "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "General",
+            "id": "c098cff7-2a11-497d-9c1b-1fb1bc57563c",
+            "actions": [
+                {
+                    "name": "Switch",
+                    "type": "Button",
+                    "id": "0982c2a1-3b77-4bc0-8442-a2229a6101bb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "54905b37-83d1-4fd1-af8b-374d464cc4f3",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "807809ab-7f86-4ff2-b386-f245826ab4af",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

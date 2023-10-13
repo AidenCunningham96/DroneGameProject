@@ -17,8 +17,8 @@ public class Boy_Controller : MonoBehaviour
 
     public bool facingRight = true;
     //[HideInInspector]
-    public bool Climbing, touchingBox, stillJumping;
-    bool Climbable;
+    public bool Climbing, touchingBox, stillJumping, Climbable;
+
     bool flip;
 
     bool canMove = true;
@@ -93,7 +93,6 @@ public class Boy_Controller : MonoBehaviour
         if (Climbable && canMove)
         {
             vertical = Input.GetAxisRaw("Vertical");
-            
 
             body.velocity = new Vector2(0, vertical * climbSpeed);
             body.gravityScale = 0;

@@ -26,13 +26,8 @@ public class Ladder : MonoBehaviour
     {
         if (canClimb)
         {
-            if (boyCon.Climbing && !ladderCheck)
+            if (boyCon.Climbable && !ladderCheck && boyCon.vertical != 0)
             {
-                //topFloor.enabled = false;
-                //topBarrier.SetActive(true);
-                //interactPrompt.enabled = false;
-                Player.transform.position = new Vector3(ladderPosition.transform.position.x, Player.transform.position.y, Player.transform.position.z);
-
                 if (boyCon.facingRight && leftFacingLadder)
                 {
                     boyCon.Flip();
@@ -47,7 +42,7 @@ public class Ladder : MonoBehaviour
                 onLadder = true;
                 ladderCheck = true;
             }
-            if (!boyCon.Climbing && ladderCheck)
+            if (!boyCon.Climbable && ladderCheck)
             {
                 //topBarrier.SetActive(false);
                 //topFloor.enabled = true;

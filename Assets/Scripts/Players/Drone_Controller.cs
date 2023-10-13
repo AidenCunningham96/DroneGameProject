@@ -7,8 +7,28 @@ public class Drone_Controller : MonoBehaviour
     float moveX;
     float moveY;
 
-    public int moveSpeed;
+    [Header("Speed Settings")]
+    public float minSpeed = 1f;
+    public float maxSpeed = 20f;
+    float ogMaxSpeed;
+    float moveSpeed;
     public int downwardDrift;
+
+    float minSpeedOg;
+    float maxSpeedOg;
+
+    [Space(10)]
+    [Header("Acceleration Settings")]
+    public float acceleration = 2f;
+
+    float accelTime;
+
+    public Transform Bottom;
+    public float rayRadius;
+    public LayerMask groundLayerMask;
+
+    [HideInInspector]
+    public bool isGrounded;
 
     public float rollSpeed = 1f;
 
@@ -28,6 +48,8 @@ public class Drone_Controller : MonoBehaviour
     private Player_Controls controls;
 
     public Grabber grabberScript;
+
+    
 
     void Awake()
     {
@@ -49,6 +71,9 @@ public class Drone_Controller : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         body.velocity = Vector3.zero;
         grabberScript = GameObject.Find("Grab_Point").GetComponent<Grabber>();
+
+        minSpeedOg = minSpeed;
+        maxSpeedOg = maxSpeed;
 
         //anim = GetComponent<Animator>();
     }
@@ -80,6 +105,17 @@ public class Drone_Controller : MonoBehaviour
     {
         moveX = Input.GetAxis("Horizontal");
 
+        RaycastHit2D hit = Physics2D.CircleCast(Bottom.position, rayRadius, Vector2.down, 0, groundLayerMask);
+
+        if (hit.collider != null)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+
         if (flying)
         {
             moveY = 1;
@@ -102,6 +138,7 @@ public class Drone_Controller : MonoBehaviour
         if (moveX == 0 && !flying)
         {
             isStill = true;
+            
         }
         else
         {
@@ -115,15 +152,25 @@ public class Drone_Controller : MonoBehaviour
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(pitch, 0f, roll), rollSpeed * 100 * Time.deltaTime);
 
-        if (isStill)
+        if (flying)
         {
-            body.velocity = new Vector2(moveX, -downwardDrift) * (moveSpeed * 10) * Time.deltaTime;
+            accelTime += acceleration * Time.deltaTime;
+            moveSpeed = Mathf.Lerp(minSpeed, maxSpeed, accelTime);
+            
+            body.velocity = new Vector2(moveX, moveY) * (moveSpeed * 100) * Time.deltaTime;
         }
         else
         {
-            body.velocity = new Vector2(moveX, moveY) * (moveSpeed * 100) * Time.deltaTime;
+            accelTime = 0;
+            body.velocity = new Vector2(moveX * 6, -downwardDrift) * 40 * Time.deltaTime;
+
         }
-        
+
+        if (acceleration < 1)
+        {
+            acceleration = 1;
+        }
+
     }
 
     void Flying()

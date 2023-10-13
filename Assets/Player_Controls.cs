@@ -71,30 +71,8 @@ public class @Player_Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7a13c6de-cbcd-46f1-9b5d-fa1a24256a8b"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e4a0aeea-5c8b-45a1-aae4-da9a7dc2aa88"",
                     ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5e81d09b-1f02-4c82-91c5-aa19d255de7d"",
-                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -171,6 +149,44 @@ public class @Player_Controls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""General"",
+            ""id"": ""c098cff7-2a11-497d-9c1b-1fb1bc57563c"",
+            ""actions"": [
+                {
+                    ""name"": ""Switch"",
+                    ""type"": ""Button"",
+                    ""id"": ""0982c2a1-3b77-4bc0-8442-a2229a6101bb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""54905b37-83d1-4fd1-af8b-374d464cc4f3"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""807809ab-7f86-4ff2-b386-f245826ab4af"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -183,6 +199,9 @@ public class @Player_Controls : IInputActionCollection, IDisposable
         m_Drone = asset.FindActionMap("Drone", throwIfNotFound: true);
         m_Drone_Fly = m_Drone.FindAction("Fly", throwIfNotFound: true);
         m_Drone_Grab = m_Drone.FindAction("Grab", throwIfNotFound: true);
+        // General
+        m_General = asset.FindActionMap("General", throwIfNotFound: true);
+        m_General_Switch = m_General.FindAction("Switch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -310,6 +329,39 @@ public class @Player_Controls : IInputActionCollection, IDisposable
         }
     }
     public DroneActions @Drone => new DroneActions(this);
+
+    // General
+    private readonly InputActionMap m_General;
+    private IGeneralActions m_GeneralActionsCallbackInterface;
+    private readonly InputAction m_General_Switch;
+    public struct GeneralActions
+    {
+        private @Player_Controls m_Wrapper;
+        public GeneralActions(@Player_Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Switch => m_Wrapper.m_General_Switch;
+        public InputActionMap Get() { return m_Wrapper.m_General; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GeneralActions set) { return set.Get(); }
+        public void SetCallbacks(IGeneralActions instance)
+        {
+            if (m_Wrapper.m_GeneralActionsCallbackInterface != null)
+            {
+                @Switch.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSwitch;
+                @Switch.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSwitch;
+                @Switch.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnSwitch;
+            }
+            m_Wrapper.m_GeneralActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Switch.started += instance.OnSwitch;
+                @Switch.performed += instance.OnSwitch;
+                @Switch.canceled += instance.OnSwitch;
+            }
+        }
+    }
+    public GeneralActions @General => new GeneralActions(this);
     public interface IBoyActions
     {
         void OnJump(InputAction.CallbackContext context);
@@ -319,5 +371,9 @@ public class @Player_Controls : IInputActionCollection, IDisposable
     {
         void OnFly(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
+    }
+    public interface IGeneralActions
+    {
+        void OnSwitch(InputAction.CallbackContext context);
     }
 }
