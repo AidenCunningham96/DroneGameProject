@@ -30,7 +30,11 @@ public class Grabber : MonoBehaviour
 
     public void TryGrab()
     {
-        tryingGrab = true;
+        if (!Grabbed)
+        {
+            tryingGrab = true;
+        }
+        
 
         if (grabbableObj != null)
         {
@@ -49,6 +53,14 @@ public class Grabber : MonoBehaviour
         }
     }
 
+    //void Update()
+    //{
+    //    if (Grabbed)
+    //    {
+            
+    //    }
+    //}
+
     void GrabFailed()
     {
         tryingGrab = false;
@@ -60,9 +72,11 @@ public class Grabber : MonoBehaviour
         tryingGrab = false;
         int LayerIgnoreRaycast = LayerMask.NameToLayer("Ignore_Player");
         grabbableObj.layer = LayerIgnoreRaycast;
-        grabbableBody.bodyType = RigidbodyType2D.Kinematic;
+
         grabbableObj.transform.rotation = Quaternion.identity;
         grabbableObj.transform.position = transform.position;
+        grabbableBody.bodyType = RigidbodyType2D.Kinematic;
+
         grabbableObj.transform.parent = this.transform;
     }
 

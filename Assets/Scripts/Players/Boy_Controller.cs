@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 
 public class Boy_Controller : MonoBehaviour
 {
-    public float horizontal;
-    public float vertical;
+    [HideInInspector]
+    public float horizontal, vertical;
 
     public float walkSpeed = 8f;
     public float climbSpeed = 4f;
@@ -17,7 +17,7 @@ public class Boy_Controller : MonoBehaviour
 
     public bool facingRight = true;
     //[HideInInspector]
-    public bool Climbing;
+    public bool Climbing, touchingBox, stillJumping;
     bool Climbable;
     bool flip;
 
@@ -85,26 +85,38 @@ public class Boy_Controller : MonoBehaviour
             Flip();
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && Climbable)
-        {
-            Climbing = !Climbing;
-        }
+        //if (controls.Boy.Interact.triggered && Climbable)
+        //{
+        //    Climbing = !Climbing;
+        //}
 
-        if (Climbing && canMove)
+        if (Climbable && canMove)
         {
             vertical = Input.GetAxisRaw("Vertical");
-
-            horizontal = 0;
+            
 
             body.velocity = new Vector2(0, vertical * climbSpeed);
             body.gravityScale = 0;
-            //isGrounded = false;
+            
+            if (!isGrounded)
+            {
+                Climbing = true;
+                horizontal = 0;
+            }
+            else
+            {
+                Climbing = false;
+            }
         }
 
         if (body.velocity.y < 0)
         {
             body.velocity -= vecGravity * fallMultiplier * Time.deltaTime;
-
+            stillJumping = false;
+        }
+        else
+        {
+            stillJumping = true;
         }
     }
 
@@ -112,7 +124,7 @@ public class Boy_Controller : MonoBehaviour
     {
         body.velocity = new Vector2(horizontal * walkSpeed, body.velocity.y);
 
-        if (!Climbing)
+        if (!Climbable)
         {
             body.gravityScale = 1;
         }
@@ -122,6 +134,7 @@ public class Boy_Controller : MonoBehaviour
         if (hit.collider != null)
         {
             isGrounded = true;
+            stillJumping = false;
         }
         else
         {
@@ -168,6 +181,24 @@ public class Boy_Controller : MonoBehaviour
         if (col.gameObject.tag == "Death_Shot")
         {
             deadShot = true;
+        }
+
+        
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Grabbable")
+        {
+            touchingBox = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Grabbable")
+        {
+            touchingBox = false;
         }
     }
 

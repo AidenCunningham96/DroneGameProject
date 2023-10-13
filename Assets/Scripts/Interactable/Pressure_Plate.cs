@@ -9,6 +9,8 @@ public class Pressure_Plate : MonoBehaviour
 
     Animator anim;
 
+    public AudioSource audioTrigger;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,7 @@ public class Pressure_Plate : MonoBehaviour
         if (triggered && !activated)
         {
             activated = true;
-
+            audioTrigger.Play();
         }
     }
 

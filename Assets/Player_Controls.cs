@@ -25,6 +25,14 @@ public class @Player_Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""78e85b74-4e61-4287-9e80-cfeb018e8040"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -47,6 +55,50 @@ public class @Player_Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13df2421-2b66-48f1-b00c-cca3e3a9f209"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a13c6de-cbcd-46f1-9b5d-fa1a24256a8b"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4a0aeea-5c8b-45a1-aae4-da9a7dc2aa88"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5e81d09b-1f02-4c82-91c5-aa19d255de7d"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -126,6 +178,7 @@ public class @Player_Controls : IInputActionCollection, IDisposable
         // Boy
         m_Boy = asset.FindActionMap("Boy", throwIfNotFound: true);
         m_Boy_Jump = m_Boy.FindAction("Jump", throwIfNotFound: true);
+        m_Boy_Interact = m_Boy.FindAction("Interact", throwIfNotFound: true);
         // Drone
         m_Drone = asset.FindActionMap("Drone", throwIfNotFound: true);
         m_Drone_Fly = m_Drone.FindAction("Fly", throwIfNotFound: true);
@@ -180,11 +233,13 @@ public class @Player_Controls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Boy;
     private IBoyActions m_BoyActionsCallbackInterface;
     private readonly InputAction m_Boy_Jump;
+    private readonly InputAction m_Boy_Interact;
     public struct BoyActions
     {
         private @Player_Controls m_Wrapper;
         public BoyActions(@Player_Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_Boy_Jump;
+        public InputAction @Interact => m_Wrapper.m_Boy_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Boy; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -197,6 +252,9 @@ public class @Player_Controls : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_BoyActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_BoyActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_BoyActionsCallbackInterface.OnJump;
+                @Interact.started -= m_Wrapper.m_BoyActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_BoyActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_BoyActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_BoyActionsCallbackInterface = instance;
             if (instance != null)
@@ -204,6 +262,9 @@ public class @Player_Controls : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -252,6 +313,7 @@ public class @Player_Controls : IInputActionCollection, IDisposable
     public interface IBoyActions
     {
         void OnJump(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface IDroneActions
     {

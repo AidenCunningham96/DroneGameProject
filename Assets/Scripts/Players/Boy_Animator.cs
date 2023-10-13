@@ -28,16 +28,41 @@ public class Boy_Animator : MonoBehaviour
                 if (boyCon.horizontal == 0 && boyCon.vertical == 0)
                 {
                     anim.SetBool("Walk", false);
+
+                    anim.SetBool("Pushing", false);
                 }
 
                 if (boyCon.horizontal != 0)
                 {
-                    anim.SetBool("Walk", true);
+                    if (!boyCon.touchingBox)
+                    {
+                        anim.SetBool("Walk", true);
+                    }
+                    else
+                    {
+                        if (boyCon.horizontal != 0)
+                        {
+                            anim.SetBool("Pushing", true);
+                        }
+                        else
+                        {
+                            anim.SetBool("Pushing", false);
+                        }
+                    }                  
                 }
             }
             if (!boyCon.isGrounded && boyCon.enabled)
             {
-                anim.SetBool("Fall", true);
+                if (!boyCon.stillJumping)
+                {
+                    anim.SetBool("Fall", true);
+                    anim.SetBool("Jump", false);
+                }
+                else
+                {
+                    anim.SetBool("Fall", false);
+                    anim.SetBool("Jump", true);
+                }
             }
 
             if (!boyCon.enabled)
@@ -53,12 +78,24 @@ public class Boy_Animator : MonoBehaviour
         
         if (boyCon.Climbing)
         {
-            anim.Play("LadderClimb");
+            if (boyCon.vertical == 0)
+            {
+                anim.Play("Kid_Ladder_Idle");
+            }
+            else
+            {
+                anim.Play("LadderClimb");
+            }
         }
 
         if (boyCon.deadTrap)
         {
             anim.SetBool("Death_Trap", true);
+        }
+
+        if (!boyCon.touchingBox)
+        {
+            anim.SetBool("Pushing", false);
         }
        
     }
