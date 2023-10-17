@@ -10,32 +10,30 @@ public class Grabbable : MonoBehaviour
 
     bool switchStatus;
 
+    public float offset;
+
+    public bool collidingWithGround;
+
+    public GameObject bottomCollider;
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         playerSwitch = GameObject.Find("GameManager").GetComponent<Player_Switching>();
     }
 
-    void Update()
-    {
-        //if (!switchStatus)
-        //{
-        //    switchStatus = true;
+    //void OnCollisionEnter2D(Collision2D col)
+    //{
+    //    if (col.gameObject.tag == "Ground")
+    //    {
+    //        collidingWithGround = true;
+    //    }
+    //}
 
-        //    if (playerSwitch.selectedPlayerNumber == 1)
-        //    {
-        //        body.bodyType = RigidbodyType2D.Dynamic;
-        //    }
-        //    else
-        //    {
-        //        body.bodyType = RigidbodyType2D.Kinematic;
-        //    }
-        //}
-
-        //if (switchStatus && playerSwitch.Switching)
-        //{
-        //    switchStatus = false;
-        //}
-        
-    }
+    //void OnCollisionExit2D(Collision2D col)
+    //{
+    //    if (col.gameObject.tag == "Ground")
+    //    {
+    //        collidingWithGround = false;
+    //    }
+    //}
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grabber : MonoBehaviour
 {
-    //public Grabbable grabbableScript;
+    Grabbable grabbableScript;
     public GameObject grabbableObj;
     Rigidbody2D grabbableBody;
 
@@ -74,26 +74,29 @@ public class Grabber : MonoBehaviour
         grabbableObj.layer = LayerIgnoreRaycast;
 
         grabbableObj.transform.rotation = Quaternion.identity;
-        grabbableObj.transform.position = new Vector3(transform.position.x, transform.position.y - .8f, transform.position.z);
+        //grabbableScript.bottomCollider.SetActive(true);
+        grabbableObj.transform.position = new Vector3(transform.position.x, transform.position.y - grabbableScript.offset, transform.position.z);
+
         grabbableBody.bodyType = RigidbodyType2D.Kinematic;
 
         grabbableObj.transform.parent = this.transform;
     }
 
-    void Release()
+    public void Release()
     {
         Grabbed = false;
         int LayerIgnoreRaycast = LayerMask.NameToLayer("Default");
         grabbableObj.layer = LayerIgnoreRaycast;
         grabbableObj.transform.parent = null;
         grabbableBody.bodyType = RigidbodyType2D.Dynamic;
+        //grabbableScript.bottomCollider.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Grabbable")
         {
-            //grabbableScript = col.gameObject.GetComponent<Grabbable>();
+            grabbableScript = col.gameObject.GetComponent<Grabbable>();
             grabbableObj = col.gameObject;
             grabbableBody = col.gameObject.GetComponent<Rigidbody2D>();
         }
