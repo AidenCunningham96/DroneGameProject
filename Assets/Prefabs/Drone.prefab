@@ -100,11 +100,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bbf5c4c41b04ee418148538466bdf3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  minSpeed: 1
+  maxSpeed: 3
   downwardDrift: 1
+  acceleration: 2
+  Bottom: {fileID: 0}
+  rayRadius: 0
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  isGrounded: 0
   rollSpeed: 1
-  rollAmount: 35
+  rollAmount: 10
   isStill: 0
+  flying: 0
+  grabberScript: {fileID: 0}
 --- !u!114 &8778580932528167302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1a395c8b9a10f42b4188de5ffddbad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!50 &7325967835777088331
 Rigidbody2D:
   serializedVersion: 4
@@ -226,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabbableObj: {fileID: 0}
   Grabbed: 0
+  tryingGrab: 0
 --- !u!1001 &4917651655219693722
 PrefabInstance:
   m_ObjectHideFlags: 0
