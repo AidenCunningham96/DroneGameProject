@@ -74,7 +74,7 @@ public class Grabber : MonoBehaviour
         grabbableObj.layer = LayerIgnoreRaycast;
 
         grabbableObj.transform.rotation = Quaternion.identity;
-        grabbableObj.transform.position = transform.position;
+        grabbableObj.transform.position = new Vector3(transform.position.x, transform.position.y - .8f, transform.position.z);
         grabbableBody.bodyType = RigidbodyType2D.Kinematic;
 
         grabbableObj.transform.parent = this.transform;
