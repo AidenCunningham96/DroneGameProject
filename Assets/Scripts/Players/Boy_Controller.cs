@@ -187,15 +187,17 @@ public class Boy_Controller : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Grabbable")
+        if (col.gameObject.name == "Crate")
         {
             touchingBox = true;
         }
+
+
     }
 
     void OnCollisionExit2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Grabbable")
+        if (col.gameObject.name == "Crate")
         {
             touchingBox = false;
         }
