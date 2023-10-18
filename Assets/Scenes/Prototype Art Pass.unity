@@ -21068,7 +21068,7 @@ PrefabInstance:
     - target: {fileID: 2619127788814593066, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: jumpPower
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2619127788814593066, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
@@ -21078,7 +21078,7 @@ PrefabInstance:
     - target: {fileID: 2619127788814593066, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
       propertyPath: fallMultiplier
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2619127788814593066, guid: e11b33cbdb821ae46b3bf752f72afe2e,
         type: 3}
@@ -26404,7 +26404,7 @@ PrefabInstance:
     - target: {fileID: 7325967835777088330, guid: ad40fddfd4b60a8438215e5cd414667a,
         type: 3}
       propertyPath: maxSpeed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7325967835777088330, guid: ad40fddfd4b60a8438215e5cd414667a,
         type: 3}
@@ -26423,13 +26423,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7325967835777088330, guid: ad40fddfd4b60a8438215e5cd414667a,
         type: 3}
+      propertyPath: acceleration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325967835777088330, guid: ad40fddfd4b60a8438215e5cd414667a,
+        type: 3}
       propertyPath: deceleration
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7325967835777088330, guid: ad40fddfd4b60a8438215e5cd414667a,
         type: 3}
       propertyPath: downwardDrift
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7325967835777088330, guid: ad40fddfd4b60a8438215e5cd414667a,
         type: 3}
