@@ -9,7 +9,7 @@ public class Ladder : MonoBehaviour
     bool ladderCheck;
     bool canClimb;
 
-    public Transform ladderPosition;
+    public GameObject ladderPosition;
 
     Boy_Controller boyCon;
     GameObject Player;
@@ -26,8 +26,31 @@ public class Ladder : MonoBehaviour
     {
         if (canClimb)
         {
-            if (boyCon.Climbable && !ladderCheck && boyCon.vertical != 0)
+           
+
+            if (boyCon.Climbing && !ladderCheck && boyCon.vertical != 0)
             {
+               ladderCheck = true;
+            }
+            if (!boyCon.Climbable && ladderCheck)
+            {
+                ladderCheck = false;
+            }
+
+            if (!boyCon.isGrounded && boyCon.Climbing)
+            {
+                onLadder = true;               
+            }
+            else
+            {
+                onLadder = false;
+                ladderCheck = false;
+            }
+
+            if (onLadder)
+            {
+                Player.transform.position = new Vector3(ladderPosition.transform.position.x, Player.transform.position.y, Player.transform.position.z);
+
                 if (boyCon.facingRight && leftFacingLadder)
                 {
                     boyCon.Flip();
@@ -38,17 +61,6 @@ public class Ladder : MonoBehaviour
                     boyCon.Flip();
                     boyCon.facingRight = true;
                 }
-
-                onLadder = true;
-                ladderCheck = true;
-            }
-            if (!boyCon.Climbable && ladderCheck)
-            {
-                //topBarrier.SetActive(false);
-                //topFloor.enabled = true;
-
-                onLadder = false;
-                ladderCheck = false;
             }
         }
     }

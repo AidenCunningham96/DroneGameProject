@@ -9,6 +9,8 @@ public class Activate_Animate : MonoBehaviour
     public Animator anim;
     bool activated;
 
+    public bool overrideActivation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,7 @@ public class Activate_Animate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (plateScript != null && plateScript.activated && !activated)
+        if (plateScript != null && plateScript.activated && !activated || (overrideActivation && !activated))
         {
             activated = true;
             anim.SetTrigger("Trigger");

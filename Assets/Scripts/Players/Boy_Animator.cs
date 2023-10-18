@@ -53,7 +53,7 @@ public class Boy_Animator : MonoBehaviour
                     }                  
                 }
             }
-            if (!boyCon.isGrounded && boyCon.enabled)
+            if (!boyCon.isGrounded && boyCon.enabled && !boyCon.Climbing)
             {
                 if (!boyCon.stillJumping)
                 {
@@ -86,8 +86,12 @@ public class Boy_Animator : MonoBehaviour
             }
             else
             {
-                anim.Play("LadderClimb");
+                anim.SetBool("Climbing", true);
             }
+        }
+        if (!boyCon.Climbing)
+        {
+            anim.SetBool("Climbing", false);
         }
 
         if (boyCon.deadTrap)

@@ -20,7 +20,7 @@ public class Grabber : MonoBehaviour
         }
         if (grabbableObj != null)
         {
-            int LayerIgnoreRaycast = LayerMask.NameToLayer("Default");
+            int LayerIgnoreRaycast = LayerMask.NameToLayer("Ground");
             grabbableObj.layer = LayerIgnoreRaycast;
             grabbableObj.transform.parent = null;
 
@@ -85,7 +85,7 @@ public class Grabber : MonoBehaviour
     public void Release()
     {
         Grabbed = false;
-        int LayerIgnoreRaycast = LayerMask.NameToLayer("Default");
+        int LayerIgnoreRaycast = LayerMask.NameToLayer("Ground");
         grabbableObj.layer = LayerIgnoreRaycast;
         grabbableObj.transform.parent = null;
         grabbableBody.bodyType = RigidbodyType2D.Dynamic;
