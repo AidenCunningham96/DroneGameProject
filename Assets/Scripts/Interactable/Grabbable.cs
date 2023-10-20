@@ -14,8 +14,6 @@ public class Grabbable : MonoBehaviour
 
     public float offset;
 
-    public bool collidingWithGround;
-
     public bool canRotateFreely;
 
     //public GameObject bottomCollider;
