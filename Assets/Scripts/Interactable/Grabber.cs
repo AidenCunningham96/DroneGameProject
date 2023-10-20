@@ -10,6 +10,8 @@ public class Grabber : MonoBehaviour
 
     public bool Grabbed, tryingGrab;
 
+    public FixedJoint2D fixedJoint;
+
     void OnDisable()
     {
         Grabbed = false;
@@ -26,6 +28,11 @@ public class Grabber : MonoBehaviour
 
         }
         
+    }
+
+    void Start()
+    {
+        fixedJoint.enabled = false;
     }
 
     public void TryGrab()
@@ -72,14 +79,21 @@ public class Grabber : MonoBehaviour
         tryingGrab = false;
         int LayerIgnoreRaycast = LayerMask.NameToLayer("Ignore_Player");
         grabbableObj.layer = LayerIgnoreRaycast;
+        fixedJoint.enabled = true;
+        fixedJoint.connectedBody = grabbableBody;
 
+        if (grabbableScript.canRotateFreely)
+        {
+            grabbableBody.freezeRotation = true;
+        }
+        
         grabbableObj.transform.rotation = Quaternion.identity;
         //grabbableScript.bottomCollider.SetActive(true);
         grabbableObj.transform.position = new Vector3(transform.position.x, transform.position.y - grabbableScript.offset, transform.position.z);
 
-        grabbableBody.bodyType = RigidbodyType2D.Kinematic;
-
-        grabbableObj.transform.parent = this.transform;
+        //grabbableBody.bodyType = RigidbodyType2D.Kinematic;
+        grabbableScript.Grabbed();
+        //grabbableObj.transform.parent = this.transform;
     }
 
     public void Release()
@@ -87,8 +101,18 @@ public class Grabber : MonoBehaviour
         Grabbed = false;
         int LayerIgnoreRaycast = LayerMask.NameToLayer("Ground");
         grabbableObj.layer = LayerIgnoreRaycast;
-        grabbableObj.transform.parent = null;
-        grabbableBody.bodyType = RigidbodyType2D.Dynamic;
+        fixedJoint.connectedBody = null;
+        fixedJoint.enabled = false;
+        grabbableObj = null;
+
+        if (grabbableScript.canRotateFreely)
+        {
+            grabbableBody.freezeRotation = false;
+        }
+
+        //grabbableObj.transform.parent = null;
+        //grabbableBody.bodyType = RigidbodyType2D.Dynamic;
+        grabbableScript.ResetGrab();
         //grabbableScript.bottomCollider.SetActive(false);
     }
 
@@ -107,7 +131,11 @@ public class Grabber : MonoBehaviour
         if (col.gameObject.tag == "Grabbable")
         {
             //grabbableScript = null;
-            grabbableObj = null;
+            if (!Grabbed)
+            {
+                grabbableObj = null;
+            }
+            
         }
     }
 }

@@ -7,6 +7,8 @@ public class Grabbable : MonoBehaviour
     Player_Switching playerSwitch;
 
     Rigidbody2D body;
+    public float grabbedMass = 1;
+    float ogMass;
 
     bool switchStatus;
 
@@ -14,26 +16,24 @@ public class Grabbable : MonoBehaviour
 
     public bool collidingWithGround;
 
-    public GameObject bottomCollider;
+    public bool canRotateFreely;
+
+    //public GameObject bottomCollider;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         playerSwitch = GameObject.Find("GameManager").GetComponent<Player_Switching>();
+        ogMass = body.mass;
     }
 
-    //void OnCollisionEnter2D(Collision2D col)
-    //{
-    //    if (col.gameObject.tag == "Ground")
-    //    {
-    //        collidingWithGround = true;
-    //    }
-    //}
+    public void Grabbed()
+    {
+        body.mass = grabbedMass;
+    }
 
-    //void OnCollisionExit2D(Collision2D col)
-    //{
-    //    if (col.gameObject.tag == "Ground")
-    //    {
-    //        collidingWithGround = false;
-    //    }
-    //}
+    public void ResetGrab()
+    {
+        body.mass = ogMass;
+    }
 }
