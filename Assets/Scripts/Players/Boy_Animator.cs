@@ -7,6 +7,8 @@ public class Boy_Animator : MonoBehaviour
     [HideInInspector]
     public Animator anim;
 
+    public float timeBeforeFall = .1f;
+
     Boy_Controller boyCon;
     Rigidbody2D body;
 
@@ -57,8 +59,7 @@ public class Boy_Animator : MonoBehaviour
             {
                 if (!boyCon.stillJumping)
                 {
-                    anim.SetBool("Fall", true);
-                    anim.SetBool("Jump", false);
+                    Invoke("StartFall", timeBeforeFall);                    
                 }
                 else
                 {
@@ -104,5 +105,11 @@ public class Boy_Animator : MonoBehaviour
             anim.SetBool("Pushing", false);
         }
        
+    }
+
+    void StartFall()
+    {
+        anim.SetBool("Fall", true);
+        anim.SetBool("Jump", false);
     }
 }
