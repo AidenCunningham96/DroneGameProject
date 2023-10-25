@@ -29,6 +29,7 @@ public class Boy_Animator : MonoBehaviour
             {
                 anim.SetBool("Fall", false);
                 anim.SetBool("Jump", false);
+                CancelInvoke("StartFall");
                 if (boyCon.horizontal == 0 && boyCon.vertical == 0)
                 {
                     anim.SetBool("Walk", false);
@@ -57,6 +58,7 @@ public class Boy_Animator : MonoBehaviour
             }
             if (!boyCon.isGrounded && boyCon.enabled && !boyCon.Climbing)
             {
+                anim.SetBool("Walk", false);
                 if (!boyCon.stillJumping)
                 {
                     Invoke("StartFall", timeBeforeFall);                    
@@ -81,13 +83,18 @@ public class Boy_Animator : MonoBehaviour
         
         if (boyCon.Climbing)
         {
+            anim.SetBool("Fall", false);
+            anim.SetBool("Jump", false);
+
             if (boyCon.vertical == 0)
             {
-                anim.Play("Kid_Ladder_Idle");
+                anim.SetBool("Climbing", false);
+                anim.SetBool("OnLadder", true);
             }
             else
             {
                 anim.SetBool("Climbing", true);
+                anim.SetBool("OnLadder", false);
             }
         }
         if (!boyCon.Climbing)

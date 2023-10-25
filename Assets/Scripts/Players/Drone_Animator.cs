@@ -27,14 +27,7 @@ public class Drone_Animator : MonoBehaviour
         {
             anim.SetBool("Grounded", false);
 
-            if (droneCon.flying)
-            {
-                anim.SetBool("Flight", true);
-            }
-            else
-            {
-                anim.SetBool("Flight", false);
-            }
+            anim.SetBool("Flight", true);
 
             if (grabberScript.Grabbed || grabberScript.tryingGrab)
             {
@@ -46,6 +39,11 @@ public class Drone_Animator : MonoBehaviour
                 anim.SetBool("Grab", false);
             }
         }
+        else
+        {
+            anim.SetBool("Flight", false);
+        }
+
         if (!droneCon.enabled)
         {
             anim.SetBool("Grounded", true);

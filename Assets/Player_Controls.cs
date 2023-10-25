@@ -87,14 +87,6 @@ public class @Player_Controls : IInputActionCollection, IDisposable
             ""id"": ""160f086a-93b4-4a13-8400-526ee6e21a01"",
             ""actions"": [
                 {
-                    ""name"": ""Fly"",
-                    ""type"": ""Button"",
-                    ""id"": ""37cf01d4-924c-4e68-ac1d-9c22492b02db"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press(pressPoint=0.2,behavior=2)""
-                },
-                {
                     ""name"": ""Grab"",
                     ""type"": ""Button"",
                     ""id"": ""7d7c661e-78fe-41f4-88b8-c1501f6de97d"",
@@ -104,28 +96,6 @@ public class @Player_Controls : IInputActionCollection, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""a558d058-6c1a-4709-8409-716e24c01f0f"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fly"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""77b66375-50a2-43ee-9532-bf219c84cf01"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Fly"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""8dcde5ce-ba95-4efb-94f5-6ce247b0f907"",
@@ -197,7 +167,6 @@ public class @Player_Controls : IInputActionCollection, IDisposable
         m_Boy_Interact = m_Boy.FindAction("Interact", throwIfNotFound: true);
         // Drone
         m_Drone = asset.FindActionMap("Drone", throwIfNotFound: true);
-        m_Drone_Fly = m_Drone.FindAction("Fly", throwIfNotFound: true);
         m_Drone_Grab = m_Drone.FindAction("Grab", throwIfNotFound: true);
         // General
         m_General = asset.FindActionMap("General", throwIfNotFound: true);
@@ -292,13 +261,11 @@ public class @Player_Controls : IInputActionCollection, IDisposable
     // Drone
     private readonly InputActionMap m_Drone;
     private IDroneActions m_DroneActionsCallbackInterface;
-    private readonly InputAction m_Drone_Fly;
     private readonly InputAction m_Drone_Grab;
     public struct DroneActions
     {
         private @Player_Controls m_Wrapper;
         public DroneActions(@Player_Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Fly => m_Wrapper.m_Drone_Fly;
         public InputAction @Grab => m_Wrapper.m_Drone_Grab;
         public InputActionMap Get() { return m_Wrapper.m_Drone; }
         public void Enable() { Get().Enable(); }
@@ -309,9 +276,6 @@ public class @Player_Controls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_DroneActionsCallbackInterface != null)
             {
-                @Fly.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnFly;
-                @Fly.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnFly;
-                @Fly.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnFly;
                 @Grab.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnGrab;
                 @Grab.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnGrab;
                 @Grab.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnGrab;
@@ -319,9 +283,6 @@ public class @Player_Controls : IInputActionCollection, IDisposable
             m_Wrapper.m_DroneActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Fly.started += instance.OnFly;
-                @Fly.performed += instance.OnFly;
-                @Fly.canceled += instance.OnFly;
                 @Grab.started += instance.OnGrab;
                 @Grab.performed += instance.OnGrab;
                 @Grab.canceled += instance.OnGrab;
@@ -369,7 +330,6 @@ public class @Player_Controls : IInputActionCollection, IDisposable
     }
     public interface IDroneActions
     {
-        void OnFly(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
     }
     public interface IGeneralActions

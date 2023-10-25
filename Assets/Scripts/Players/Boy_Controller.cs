@@ -41,6 +41,8 @@ public class Boy_Controller : MonoBehaviour
     [HideInInspector]
     public bool deadTrap, deadShot;
 
+    Rigidbody2D pushedObject;
+    float pushedOGMass;
     void Awake()
     {
         controls = new Player_Controls();
@@ -68,13 +70,13 @@ public class Boy_Controller : MonoBehaviour
         {
             horizontal = Input.GetAxisRaw("Horizontal");
         }
+        vertical = Input.GetAxisRaw("Vertical");
 
         if (controls.Boy.Jump.triggered && isGrounded)
         {
             body.velocity = new Vector2(body.velocity.x, jumpPower);
         }
 
-        vertical = Input.GetAxisRaw("Vertical");
 
         if (horizontal > 0 && !facingRight)
         {
@@ -84,6 +86,7 @@ public class Boy_Controller : MonoBehaviour
         {
             Flip();
         }
+       
 
         //if (controls.Boy.Interact.triggered && Climbable)
         //{
@@ -115,7 +118,20 @@ public class Boy_Controller : MonoBehaviour
         }
         else
         {
-            stillJumping = true;
+            if (!isGrounded)
+            {
+                stillJumping = true;
+            }
+            
+        }
+
+        if (isGrounded)
+        {
+            GetComponent<Collider2D>().sharedMaterial.friction = 10;
+        }
+        else
+        {
+            GetComponent<Collider2D>().sharedMaterial.friction = 0;
         }
     }
 
@@ -133,6 +149,8 @@ public class Boy_Controller : MonoBehaviour
         if (hit.collider != null)
         {
             isGrounded = true;
+            stillJumping = false;
+            
             stillJumping = false;
         }
         else
@@ -170,6 +188,7 @@ public class Boy_Controller : MonoBehaviour
         if (col.gameObject.tag == "Climbable")
         {
             Climbable = true;
+
         }
 
         if (col.gameObject.tag == "Death_Trap")
@@ -189,10 +208,29 @@ public class Boy_Controller : MonoBehaviour
     {
         if (col.gameObject.name == "Crate")
         {
-            touchingBox = true;
+            pushedObject = col.gameObject.GetComponent<Rigidbody2D>();
+            pushedOGMass = pushedObject.mass;
+
+            if (horizontal != 0)
+            {
+                Invoke("StartTouchingBox", .5f);
+                
+            }
+            else
+            {
+                pushedObject.mass = pushedOGMass;
+                CancelInvoke("StartTouchingBox");
+            }
+            
         }
 
 
+    }
+
+    void StartTouchingBox()
+    {
+        touchingBox = true;
+        pushedObject.mass = 16;
     }
 
     void OnCollisionExit2D(Collision2D col)
@@ -200,6 +238,7 @@ public class Boy_Controller : MonoBehaviour
         if (col.gameObject.name == "Crate")
         {
             touchingBox = false;
+            pushedObject.mass = pushedOGMass;
         }
     }
 
@@ -208,8 +247,12 @@ public class Boy_Controller : MonoBehaviour
         if (col.gameObject.tag == "Climbable")
         {
             Climbable = false;
-            Climbing = false;
+            Invoke("CancelClimbing", .2f);
         }
     }
 
+    void CancelClimbing()
+    {
+        Climbing = false;
+    }
 }

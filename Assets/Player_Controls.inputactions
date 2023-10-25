@@ -74,14 +74,6 @@
             "id": "160f086a-93b4-4a13-8400-526ee6e21a01",
             "actions": [
                 {
-                    "name": "Fly",
-                    "type": "Button",
-                    "id": "37cf01d4-924c-4e68-ac1d-9c22492b02db",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(pressPoint=0.2,behavior=2)"
-                },
-                {
                     "name": "Grab",
                     "type": "Button",
                     "id": "7d7c661e-78fe-41f4-88b8-c1501f6de97d",
@@ -91,28 +83,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "a558d058-6c1a-4709-8409-716e24c01f0f",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fly",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "77b66375-50a2-43ee-9532-bf219c84cf01",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fly",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "8dcde5ce-ba95-4efb-94f5-6ce247b0f907",

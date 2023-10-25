@@ -8,9 +8,14 @@ public class Death : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Boy" || col.gameObject.tag == "Drone")
+        if (col.gameObject.tag == "Boy")
         {
             Invoke("Doom", 3f);           
+        }
+
+        if (col.gameObject.tag == "Drone")
+        {
+            Application.LoadLevel(Application.loadedLevel);
         }
     }
 

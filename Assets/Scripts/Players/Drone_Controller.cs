@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Drone_Controller : MonoBehaviour
 {
-    float moveX;
-    float moveY;
+    public float moveX;
+    public float moveY;
 
     [Header("Speed Settings")]
     public float minSpeed = 1f;
@@ -21,7 +21,7 @@ public class Drone_Controller : MonoBehaviour
     [Header("Acceleration Settings")]
     public float acceleration = 2f;
 
-    float accelTime;
+    public float accelTime;
 
     public Transform Bottom;
     public float rayRadius;
@@ -54,7 +54,7 @@ public class Drone_Controller : MonoBehaviour
     void Awake()
     {
         controls = new Player_Controls();
-        controls.Drone.Fly.performed += ctx => Flying();
+        //controls.Drone.Fly_Up.performed += ctx => Flying();
     }
 
     void OnEnable()
@@ -104,6 +104,7 @@ public class Drone_Controller : MonoBehaviour
     void FixedUpdate()
     {
         moveX = Input.GetAxis("Horizontal");
+        moveY = Input.GetAxis("Vertical");
 
         RaycastHit2D hit = Physics2D.CircleCast(Bottom.position, rayRadius, Vector2.down, 0, groundLayerMask);
 
@@ -116,14 +117,14 @@ public class Drone_Controller : MonoBehaviour
             isGrounded = false;
         }
 
-        if (flying)
-        {
-            moveY = 1;
-        }
-        else
-        {
-            moveY = 0;
-        }
+        //if (flying)
+        //{
+        //    moveY = 1;
+        //}
+        //else
+        //{
+        //    moveY = 0;
+        //}
         
 
         if (moveX > .5f)
@@ -135,7 +136,7 @@ public class Drone_Controller : MonoBehaviour
             roll = rollAmount;
         }
 
-        if (moveX == 0 && !flying)
+        if (moveX == 0 && moveY == 0)
         {
             isStill = true;
             
@@ -152,20 +153,21 @@ public class Drone_Controller : MonoBehaviour
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(pitch, 0f, roll), rollSpeed * 100 * Time.deltaTime);
 
-        if (flying)
+        if (!isStill)
         {
             accelTime += acceleration * Time.deltaTime;
             moveSpeed = Mathf.Lerp(minSpeed, maxSpeed, accelTime);
-            
+
             body.velocity = new Vector2(moveX, moveY) * (moveSpeed * 100) * Time.deltaTime;
         }
         else
         {
             accelTime = 0;
-            body.velocity = new Vector2(moveX * 6, -downwardDrift) * 40 * Time.deltaTime;
-
         }
+        
+        
 
+        //accel fail safe. 
         if (acceleration < 1)
         {
             acceleration = 1;
@@ -173,8 +175,8 @@ public class Drone_Controller : MonoBehaviour
 
     }
 
-    void Flying()
-    {
-        flying = !flying;
-    }
+    //void Flying()
+    //{
+    //    flying = !flying;
+    //}
 }
