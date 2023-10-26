@@ -22,11 +22,14 @@ public class Pushable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        if (boyCon.horizontal == 0 || !boyCon.isGrounded)
-        {
-            body.mass = ogMass;
+       if (boyCon.enabled)
+       {
+            if (boyCon.horizontal == 0 || !boyCon.isGrounded)
+            {
+                body.mass = ogMass;
+            }
         }
+        
     }
 
     void OnCollisionEnter2D(Collision2D col)
