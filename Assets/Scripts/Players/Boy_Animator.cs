@@ -7,6 +7,10 @@ public class Boy_Animator : MonoBehaviour
     [HideInInspector]
     public Animator anim;
 
+    public bool jump;
+    public bool jumping;
+    bool relinquish;
+
     public float timeBeforeFall = .1f;
 
     Boy_Controller boyCon;
@@ -27,14 +31,17 @@ public class Boy_Animator : MonoBehaviour
         {
             if (boyCon.isGrounded && boyCon.enabled && !boyCon.Climbing)
             {
-                anim.SetBool("Fall", false);
-                anim.SetBool("Jump", false);
-                CancelInvoke("StartFall");
+                if (!jumping)
+                {
+                    anim.SetBool("Jump", false);
+                    anim.SetBool("Landing", true);
+                    jump = false;
+                }
+                
+
                 if (boyCon.horizontal == 0 && boyCon.vertical == 0)
                 {
                     anim.SetBool("Walk", false);
-
-                    anim.SetBool("Pushing", false);
                 }
 
                 if (boyCon.horizontal != 0)
@@ -42,81 +49,100 @@ public class Boy_Animator : MonoBehaviour
                     if (!boyCon.touchingBox)
                     {
                         anim.SetBool("Walk", true);
+                        anim.SetBool("Push", false);
                     }
                     else
                     {
-                        if (boyCon.horizontal != 0)
-                        {
-                            anim.SetBool("Pushing", true);
-                        }
-                        else
-                        {
-                            anim.SetBool("Pushing", false);
-                        }
+                        anim.SetBool("Push", true);
+                        anim.SetBool("Walk", false);
                     }                  
-                }
-            }
-            if (!boyCon.isGrounded && boyCon.enabled && !boyCon.Climbing)
-            {
-                anim.SetBool("Walk", false);
-                if (!boyCon.stillJumping)
-                {
-                    Invoke("StartFall", timeBeforeFall);                    
                 }
                 else
                 {
-                    anim.SetBool("Fall", false);
-                    anim.SetBool("Jump", true);
+                    anim.SetBool("Push", false);
                 }
+            }
+
+            if (!boyCon.Climbing && !boyCon.isGrounded)
+            {
+                anim.SetBool("Walk", false);
+
+                anim.Play("Kid_Jump_Idle");
+            }
+
+            if (boyCon.controls.Boy.Jump.triggered && boyCon.enabled && !boyCon.Climbing)
+            {
+                anim.SetBool("Jump", true);
+
+                if (!jump)
+                {
+                    jumping = true;
+                    jump = true;                   
+                    Invoke("SetLanding", .5f);
+                }
+                
             }
 
             if (!boyCon.enabled)
             {
-                anim.SetBool("Drone", true);
-                body.velocity = Vector3.zero;
+                if (!relinquish)
+                {
+                    relinquish = true;
+                    SetAllFalse();
+                    anim.SetTrigger("Control_Drone");
+                    body.velocity = Vector3.zero;
+                }
+                
             }
             else
             {
-                anim.SetBool("Drone", false);
+                if (relinquish)
+                {
+                    relinquish = false;
+                    anim.SetTrigger("Control_Drone");
+                }
             }
         }
         
         if (boyCon.Climbing)
         {
-            anim.SetBool("Fall", false);
-            anim.SetBool("Jump", false);
+            anim.SetBool("Climbing", true);
 
             if (boyCon.vertical == 0)
             {
-                anim.SetBool("Climbing", false);
-                anim.SetBool("OnLadder", true);
+                anim.SetInteger("Climb_State", 0);
             }
             else
             {
-                anim.SetBool("Climbing", true);
-                anim.SetBool("OnLadder", false);
+                anim.SetInteger("Climb_State", 1);
             }
         }
-        if (!boyCon.Climbing)
+        else
         {
             anim.SetBool("Climbing", false);
         }
 
         if (boyCon.deadTrap)
         {
-            anim.SetBool("Death_Trap", true);
+            anim.Play("Kid_Death_Trap");
         }
 
         if (!boyCon.touchingBox)
         {
-            anim.SetBool("Pushing", false);
         }
        
     }
 
-    void StartFall()
+    void SetAllFalse()
     {
-        anim.SetBool("Fall", true);
+        anim.SetBool("Walk", false);
         anim.SetBool("Jump", false);
+        anim.SetBool("Landing", false);
+    }
+
+    void SetLanding()
+    {
+        anim.SetBool("Landing", false);
+        jumping = false;
     }
 }

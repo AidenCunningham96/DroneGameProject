@@ -9,6 +9,8 @@ public class Level_Exit : MonoBehaviour
 
     Animator fadeAnim;
 
+    public bool previousLevel;
+
     void Start()
     {
         fadeAnim = GameObject.Find("Fade_Canvas").GetComponent<Animator>();
@@ -19,12 +21,26 @@ public class Level_Exit : MonoBehaviour
         if (col.gameObject.tag == "Boy")
         {
             fadeAnim.Play("Fade_Out");
-            Invoke("NextLevel", sceneChangeTime);
+
+            if (previousLevel)
+            {
+                Invoke("PreviousLevel", sceneChangeTime);
+            }
+            else
+            {
+                Invoke("NextLevel", sceneChangeTime);
+            }
+            
         }
     }
 
     void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    void PreviousLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

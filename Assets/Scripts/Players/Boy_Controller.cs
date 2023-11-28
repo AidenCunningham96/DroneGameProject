@@ -17,7 +17,7 @@ public class Boy_Controller : MonoBehaviour
 
     public bool facingRight = true;
     //[HideInInspector]
-    public bool Climbing, touchingBox, stillJumping, Climbable;
+    public bool Climbing, touchingBox, stillJumping, Climbable, jumpStart;
 
     bool flip;
 
@@ -34,7 +34,8 @@ public class Boy_Controller : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D body;
 
-    private Player_Controls controls;
+    [HideInInspector]
+    public Player_Controls controls;
 
     Vector2 vecGravity;
 
@@ -66,13 +67,26 @@ public class Boy_Controller : MonoBehaviour
 
     void Update()
     {
-        if (!Climbing)
+        if (canMove)
         {
-            horizontal = Input.GetAxisRaw("Horizontal");
-        }
-        vertical = Input.GetAxisRaw("Vertical");
+            if (!Climbing)
+            {
+                horizontal = Input.GetAxisRaw("Horizontal");
+            }
+            vertical = Input.GetAxisRaw("Vertical");
 
-        if (controls.Boy.Jump.triggered && isGrounded)
+            if (controls.Boy.Jump.triggered && isGrounded)
+            {
+                if (!jumpStart)
+                {
+                    Invoke("StartJumping", .2f);
+                }
+
+            }
+        }
+        
+
+        if (jumpStart)
         {
             body.velocity = new Vector2(body.velocity.x, jumpPower);
         }
@@ -127,10 +141,12 @@ public class Boy_Controller : MonoBehaviour
 
         if (isGrounded)
         {
-            GetComponent<Collider2D>().sharedMaterial.friction = 10;
+            body.mass = 25;
+            GetComponent<Collider2D>().sharedMaterial.friction = 1;
         }
-        else
+        if (!isGrounded)
         {
+            body.mass = 1;
             GetComponent<Collider2D>().sharedMaterial.friction = 0;
         }
     }
@@ -165,6 +181,15 @@ public class Boy_Controller : MonoBehaviour
     //    Gizmos.DrawSphere(Feet.position, rayRadius);
     //}
 
+    public void StartJumping()
+    {
+        jumpStart = true;
+        Invoke("StopJumping", .4f);
+    }
+    public void StopJumping()
+    {
+        jumpStart = false;
+    }
     public void Flip()
     {
         Vector3 currentScale = body.transform.localScale;
@@ -194,11 +219,13 @@ public class Boy_Controller : MonoBehaviour
         if (col.gameObject.tag == "Death_Trap")
         {
             deadTrap = true;
+            canMove = false;
         }
 
         if (col.gameObject.tag == "Death_Shot")
         {
             deadShot = true;
+            canMove = false;
         }
 
         
