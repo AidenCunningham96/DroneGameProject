@@ -28,7 +28,7 @@ public class Boy_Controller : MonoBehaviour
     public float rayRadius;
     public LayerMask groundLayerMask;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool isGrounded;
 
     [HideInInspector]
@@ -141,12 +141,12 @@ public class Boy_Controller : MonoBehaviour
 
         if (isGrounded)
         {
-            body.mass = 25;
+            //body.mass = 25;
             GetComponent<Collider2D>().sharedMaterial.friction = 1;
         }
         if (!isGrounded)
         {
-            body.mass = 1;
+            //body.mass = 1;
             GetComponent<Collider2D>().sharedMaterial.friction = 0;
         }
     }
@@ -184,7 +184,7 @@ public class Boy_Controller : MonoBehaviour
     public void StartJumping()
     {
         jumpStart = true;
-        Invoke("StopJumping", .4f);
+        Invoke("StopJumping", .2f);
     }
     public void StopJumping()
     {
@@ -220,15 +220,25 @@ public class Boy_Controller : MonoBehaviour
         {
             deadTrap = true;
             canMove = false;
+            horizontal = 0;
+            Invoke("Die", .2f);
         }
 
         if (col.gameObject.tag == "Death_Shot")
         {
             deadShot = true;
             canMove = false;
+            horizontal = 0;
+            Invoke("Die", .2f);
         }
 
         
+    }
+
+    void Die()
+    {
+        body.velocity = Vector3.zero;
+        body.bodyType = RigidbodyType2D.Static;
     }
 
     void OnCollisionEnter2D(Collision2D col)

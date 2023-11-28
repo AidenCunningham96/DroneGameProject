@@ -31,9 +31,12 @@ public class Pressure_Plate : MonoBehaviour
     {
         if (col.gameObject.tag == "Grabbable" || col.gameObject.tag == "Boy")
         {
-            //interactPrompt.enabled = true;
-            triggered = true;
-            anim.SetTrigger("Trigger");
+            if (!triggered)
+            {
+                triggered = true;
+                anim.SetTrigger("Trigger");
+            }
+            
         }
 
     }

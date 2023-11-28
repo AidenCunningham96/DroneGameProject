@@ -82,6 +82,7 @@ public class Player_Switching : MonoBehaviour
             selectedPlayerNumber++;
             boyCon.enabled = false;
             boyBody.gravityScale = 20;
+            boyBody.bodyType = RigidbodyType2D.Static;
             boyAnimScript.anim.SetBool("Walk", false);
             boyAnimScript.anim.SetBool("Fall", false);
             boyAnimScript.anim.SetBool("Drone", true);
@@ -97,6 +98,7 @@ public class Player_Switching : MonoBehaviour
             selectedPlayerNumber = 0;
             boyCon.enabled = true;
             boyBody.gravityScale = 1;
+            boyBody.bodyType = RigidbodyType2D.Dynamic;
             droneCon.flying = false;
             droneCon.enabled = false;
             droneAnimScript.anim.SetBool("Flight", false);
