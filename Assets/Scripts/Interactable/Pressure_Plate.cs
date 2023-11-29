@@ -35,17 +35,13 @@ public class Pressure_Plate : MonoBehaviour
             {
                 triggered = true;
                 anim.SetTrigger("Trigger");
+
+                foreach (var c in GetComponentsInChildren<Collider2D>())
+                {
+                    c.enabled = false;
+                }
             }
             
-        }
-
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Grabbable" || col.gameObject.tag == "Boy")
-        {
-            anim.SetTrigger("Trigger");
         }
 
     }
