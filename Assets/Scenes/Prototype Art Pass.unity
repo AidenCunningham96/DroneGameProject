@@ -27194,7 +27194,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: ca6a370ec31b19849af6927c44dd4e3a, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8064815791369187508, guid: fecf3152989051349ade5a5168ebd221,
         type: 3}
       propertyPath: m_Offset.y

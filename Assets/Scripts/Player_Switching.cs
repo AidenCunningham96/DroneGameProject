@@ -74,39 +74,43 @@ public class Player_Switching : MonoBehaviour
 
     void SwitchPlayers()
     {
-        Switching = true;
-        Invoke("ResetSwitchBool", .2f);
-
-        if (selectedPlayerNumber != playableCharacters.Count)
+        if (boyCon.isGrounded)
         {
-            selectedPlayerNumber++;
-            boyCon.enabled = false;
-            boyBody.gravityScale = 20;
-            boyBody.bodyType = RigidbodyType2D.Static;
-            boyAnimScript.anim.SetBool("Walk", false);
-            boyAnimScript.anim.SetBool("Fall", false);
-            boyAnimScript.anim.SetBool("Drone", true);
-            boyAnimScript.anim.SetBool("Death_Trap", false);
-            boyAnimScript.anim.SetBool("Jump", false);
-            boyAnimScript.anim.SetBool("Pushing", false);
-            droneCon.enabled = true;
-            grabScript.enabled = true;
-        }
+            Switching = true;
+            Invoke("ResetSwitchBool", .2f);
 
-        if (selectedPlayerNumber >= playableCharacters.Count)
-        {
-            selectedPlayerNumber = 0;
-            boyCon.enabled = true;
-            boyBody.gravityScale = 1;
-            boyBody.bodyType = RigidbodyType2D.Dynamic;
-            droneCon.flying = false;
-            droneCon.enabled = false;
-            droneAnimScript.anim.SetBool("Flight", false);
-            droneAnimScript.anim.SetBool("Grab", false);
-            grabScript.enabled = false;
-        }
+            if (selectedPlayerNumber != playableCharacters.Count)
+            {
+                selectedPlayerNumber++;
+                boyCon.enabled = false;
+                boyBody.gravityScale = 20;
+                boyBody.bodyType = RigidbodyType2D.Static;
+                boyAnimScript.anim.SetBool("Walk", false);
+                boyAnimScript.anim.SetBool("Fall", false);
+                boyAnimScript.anim.SetBool("Drone", true);
+                boyAnimScript.anim.SetBool("Death_Trap", false);
+                boyAnimScript.anim.SetBool("Jump", false);
+                boyAnimScript.anim.SetBool("Pushing", false);
+                droneCon.enabled = true;
+                grabScript.enabled = true;
+            }
 
-        selectedPlayer = playableCharacters[selectedPlayerNumber];
+            if (selectedPlayerNumber >= playableCharacters.Count)
+            {
+                selectedPlayerNumber = 0;
+                boyCon.enabled = true;
+                boyBody.gravityScale = 1;
+                boyBody.bodyType = RigidbodyType2D.Dynamic;
+                droneCon.flying = false;
+                droneCon.enabled = false;
+                droneAnimScript.anim.SetBool("Flight", false);
+                droneAnimScript.anim.SetBool("Grab", false);
+                grabScript.enabled = false;
+            }
+
+            selectedPlayer = playableCharacters[selectedPlayerNumber];
+        }
+       
     }
 
     void ResetSwitchBool()

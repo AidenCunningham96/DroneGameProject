@@ -148,6 +148,7 @@ public class Boy_Controller : MonoBehaviour
         {
             //body.mass = 1;
             GetComponent<Collider2D>().sharedMaterial.friction = 0;
+            touchingBox = false;
         }
     }
 
